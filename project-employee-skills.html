@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" x-data="app()" :class="{'dark':dark}" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Employee Skills Proficiency Dashboard - Muhammad Hasaan">
+<title>Employee Skills Dashboard - Muhammad Hasaan</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      fontFamily: { display: ['PT Sans','sans-serif'], body: ['DM Sans','sans-serif'] },
+      colors: { accent: '#FF6B2B', 'accent-light': '#FF8F5C' }
+    }
+  }
+}
+</script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{font-family:'DM Sans',sans-serif}
+h1,h2,h3,h4,h5,h6{font-family:'PT Sans',sans-serif}
+body{transition:background-color .3s,color .3s}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E")}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#FF6B2B;border-radius:99px}
+/* Reading progress bar */
+#progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#FF6B2B,#FF8F5C);z-index:100;transition:width 0.1s ease;width:0}
+
+/* Scroll reveal animations */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+[x-cloak]{display:none!important}
+</style>
+</head>
+
+<body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
+
+<div id="progress-bar"></div>
+
+
+<header class="fixed inset-x-0 top-0 z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5">
+  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="index.html" class="font-display font-bold text-xl tracking-tight">
+      <span class="text-zinc-900 dark:text-white">Muhammad</span><span class="text-accent"> Hasaan</span>
+    </a>
+    <div class="flex items-center gap-3">
+      <button @click="dark=!dark" class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+        <svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg x-show="dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+      </button>
+      <a href="index.html#contact" class="hidden md:inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-light transition-colors">
+        Back to Portfolio
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main class="pt-24 pb-16">
+  <article class="max-w-4xl mx-auto px-6">
+    
+    <div class="mb-12">
+      <a href="index.html" class="inline-flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors mb-6">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+        Back to Projects
+      </a>
+      <h1 class="font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white mb-6">Employee Skills Proficiency Dashboard</h1>
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1.5 rounded-full">Power BI</span>
+        <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1.5 rounded-full">Microsoft Forms</span>
+        <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1.5 rounded-full">Excel</span>
+        <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1.5 rounded-full">Data Visualization</span>
+      </div>
+    </div>
+
+    <section class="mb-12 fade-in bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/10 rounded-2xl p-8 border border-amber-200 dark:border-amber-800">
+      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-4">🎯 Strategic Workforce Analytics</h2>
+      <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed text-lg font-medium mb-6">
+        Created a centralized dashboard to track and visualize employee proficiency levels across 50+ tools, technologies, and programming languages. Enabled leadership to identify skill gaps, plan targeted training programs, and make data-driven workforce development decisions.
+      </p>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="bg-white dark:bg-zinc-900 rounded-xl p-4 border border-amber-100 dark:border-amber-800">
+          <div class="text-3xl font-bold text-accent mb-1">50+</div>
+          <div class="text-sm text-zinc-600 dark:text-zinc-400">Skills Tracked</div>
+        </div>
+        <div class="bg-white dark:bg-zinc-900 rounded-xl p-4 border border-amber-100 dark:border-amber-800">
+          <div class="text-3xl font-bold text-accent mb-1">15+</div>
+          <div class="text-sm text-zinc-600 dark:text-zinc-400">Dashboard Pages</div>
+        </div>
+        <div class="bg-white dark:bg-zinc-900 rounded-xl p-4 border border-amber-100 dark:border-amber-800">
+          <div class="text-3xl font-bold text-accent mb-1">100%</div>
+          <div class="text-sm text-zinc-600 dark:text-zinc-400">Workforce Coverage</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12 fade-in">
+      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Project Overview</h2>
+      <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+        As one of my foundational Power BI projects, I developed a comprehensive solution to address a critical HR and leadership challenge: lack of visibility into team skillsets. Without centralized data, leadership couldn't identify skill gaps, plan effective training programs, or make informed hiring decisions.
+      </p>
+      <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        This dashboard transformed scattered, anecdotal knowledge into actionable data, providing both high-level executive views and granular individual proficiency tracking across the entire organization.
+      </p>
+    </section>
+
+    <section class="mb-12 fade-in">
+      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Solution Architecture</h2>
+      
+      <div class="space-y-6">
+        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
+          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-3 flex items-center gap-2">
+            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">1</span>
+            Data Collection via Microsoft Forms
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+            Built a structured Microsoft Form for employees to self-assess proficiency levels across multiple skill categories. Form responses automatically feed into Excel for seamless data refresh.
+          </p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-white dark:bg-zinc-800 rounded-lg p-4 border border-zinc-200 dark:border-zinc-700">
+              <h4 class="font-bold text-sm text-zinc-900 dark:text-white mb-2">Skill Categories</h4>
+              <ul class="text-xs text-zinc-600 dark:text-zinc-400 space-y-1">
+                <li>• Programming Languages (Python, JavaScript, etc.)</li>
+                <li>• BI Tools (Power BI, Tableau, etc.)</li>
+                <li>• Cloud Platforms (AWS, Azure, GCP)</li>
+                <li>• Frameworks & Libraries</li>
+              </ul>
+            </div>
+            <div class="bg-white dark:bg-zinc-800 rounded-lg p-4 border border-zinc-200 dark:border-zinc-700">
+              <h4 class="font-bold text-sm text-zinc-900 dark:text-white mb-2">Proficiency Levels</h4>
+              <ul class="text-xs text-zinc-600 dark:text-zinc-400 space-y-1">
+                <li>• Beginner (Learning fundamentals)</li>
+                <li>• Intermediate (Can work independently)</li>
+                <li>• Advanced (Can mentor others)</li>
+                <li>• Expert (Subject matter expert)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
+          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-3 flex items-center gap-2">
+            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">2</span>
+            Real-Time Power BI Integration
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">
+            Connected the Excel dataset directly to Power BI with scheduled refresh, ensuring leadership always sees up-to-date skill matrices. Data transformations in Power Query normalize responses and calculate aggregated metrics.
+          </p>
+          <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-2">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Automated data refresh eliminates manual updates</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Power Query handles data cleansing and transformation</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>DAX measures calculate skill distribution percentages</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
+          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-3 flex items-center gap-2">
+            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">3</span>
+            Multi-Page Navigation Dashboard
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">
+            Designed a 15+ page Power BI report with each page dedicated to a specific tool or technology category. Navigation buttons enable quick jumps between skill areas for focused analysis.
+          </p>
+          <div class="bg-white dark:bg-zinc-800 rounded-lg p-4 border border-zinc-200 dark:border-zinc-700">
+            <p class="text-xs text-zinc-500 dark:text-zinc-400"><strong>Design Philosophy:</strong> Balance detail with usability—executive overview for leadership, drill-down pages for managers, individual views for employees.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12 fade-in">
+      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Key Features</h2>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/10 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
+          <h3 class="font-bold text-zinc-900 dark:text-white mb-3">📊 Department-Level Views</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">Compare skill distributions across departments to identify areas of strength and teams needing support. Heat maps visualize proficiency clusters.</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/10 rounded-xl p-6 border border-purple-200 dark:border-purple-800">
+          <h3 class="font-bold text-zinc-900 dark:text-white mb-3">👤 Individual Proficiency Tracking</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">Drill down to individual employee skill profiles. Managers can view their team members' expertise and identify development opportunities.</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/10 rounded-xl p-6 border border-green-200 dark:border-green-800">
+          <h3 class="font-bold text-zinc-900 dark:text-white mb-3">🎯 Skill Gap Analysis</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">Identify skills with low coverage across the organization. Highlight critical gaps that could impact project delivery or client commitments.</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/10 rounded-xl p-6 border border-orange-200 dark:border-orange-800">
+          <h3 class="font-bold text-zinc-900 dark:text-white mb-3">📈 Proficiency Distribution</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">Visual breakdown of skill levels (Beginner, Intermediate, Advanced, Expert) helps plan mentorship programs and knowledge transfer initiatives.</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-violet-50 to-purple-50 dark:from-violet-900/20 dark:to-purple-900/10 rounded-xl p-6 border border-violet-200 dark:border-violet-800">
+          <h3 class="font-bold text-zinc-900 dark:text-white mb-3">🔍 Advanced Filters</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">Dynamic filters for department, position, skill category, and proficiency level enable custom analysis for specific workforce planning scenarios.</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-900/20 dark:to-pink-900/10 rounded-xl p-6 border border-rose-200 dark:border-rose-800">
+          <h3 class="font-bold text-zinc-900 dark:text-white mb-3">📱 User-Friendly Interface</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">Intuitive design ensures both technical and non-technical stakeholders can easily navigate and extract insights without training.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12 fade-in">
+      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Business Impact</h2>
+      <div class="bg-gradient-to-br from-accent/10 to-orange-50 dark:from-accent/5 dark:to-zinc-900 rounded-2xl p-8 border border-accent/20">
+        <div class="space-y-6">
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-accent/10 rounded-lg">
+              <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-zinc-900 dark:text-white mb-2">Data-Driven Hiring & Training Decisions</h3>
+              <p class="text-sm text-zinc-600 dark:text-zinc-400">Leadership gained visibility into organizational capabilities, enabling strategic decisions on whether to hire externally for new skills or upskill existing employees through targeted training programs.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-accent/10 rounded-lg">
+              <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-zinc-900 dark:text-white mb-2">Optimized Resource Allocation</h3>
+              <p class="text-sm text-zinc-600 dark:text-zinc-400">Project managers could now assign tasks based on actual skill proficiency rather than assumptions, improving project success rates and employee satisfaction.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-accent/10 rounded-lg">
+              <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-zinc-900 dark:text-white mb-2">Strategic Workforce Development</h3>
+              <p class="text-sm text-zinc-600 dark:text-zinc-400">HR could design targeted learning paths and mentorship programs based on skill distribution data, maximizing ROI on professional development initiatives.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-accent/10 rounded-lg">
+              <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-zinc-900 dark:text-white mb-2">Increased Team Transparency</h3>
+              <p class="text-sm text-zinc-600 dark:text-zinc-400">Employees gained clarity on organizational skill inventory, fostering collaboration ("Who can I ask for help with AWS?") and motivating skill development to fill identified gaps.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="text-center pt-8 border-t border-zinc-200 dark:border-zinc-800">
+      <a href="index.html#contact" class="inline-flex items-center gap-2 bg-accent text-white font-medium px-8 py-3.5 rounded-full hover:bg-accent-light transition-colors">
+        Need Workforce Analytics? Let's Connect
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+
+  </article>
+</main>
+
+<footer class="border-t border-zinc-100 dark:border-zinc-900 mt-16">
+  <div class="max-w-6xl mx-auto px-6 py-8 text-center">
+    <p class="text-sm text-zinc-400">© <span id="yr"></span> Muhammad Hasaan. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+function app() {
+  return {
+    dark: false,
+    init() {
+      this.dark = localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      this.$watch('dark', v => localStorage.setItem('theme', v ? 'dark' : 'light'));
+      document.getElementById('yr').textContent = new Date().getFullYear();      
+      // Reading progress bar
+      const progressBar = document.getElementById('progress-bar');
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / docHeight) * 100;
+        progressBar.style.width = progress + '%';
+      }, { passive: true });
+      
+      // Scroll reveal animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+      
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
+    }
+  }
+}
+</script>
+
+</body>
+</html>

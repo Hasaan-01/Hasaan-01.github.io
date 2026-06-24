@@ -552,14 +552,14 @@ function init3DSpiral() {
   camera.position.y = 2;
 
   // Lighting
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
   scene.add(ambientLight);
   
-  const pointLight1 = new THREE.PointLight(0xFF6B2B, 1, 100);
+  const pointLight1 = new THREE.PointLight(0xffffff, 0.6, 100);
   pointLight1.position.set(10, 10, 10);
   scene.add(pointLight1);
   
-  const pointLight2 = new THREE.PointLight(0x6366f1, 0.8, 100);
+  const pointLight2 = new THREE.PointLight(0xffffff, 0.4, 100);
   pointLight2.position.set(-10, -5, 5);
   scene.add(pointLight2);
 
@@ -594,6 +594,15 @@ function init3DSpiral() {
     });
     
     const card = new THREE.Mesh(geometry, material);
+    
+    // Add border
+    const edges = new THREE.EdgesGeometry(geometry);
+    const lineMaterial = new THREE.LineBasicMaterial({ 
+      color: 0xFF6B2B,
+      linewidth: 2
+    });
+    const border = new THREE.LineSegments(edges, lineMaterial);
+    card.add(border);
     
     const angle = (i / projects.length) * Math.PI * 2;
     const radius = 5;

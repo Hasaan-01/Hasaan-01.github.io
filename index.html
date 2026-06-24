@@ -59,7 +59,7 @@ animation:floatOrbs 20s ease-in-out infinite}
 /* reveal on scroll */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
 .reveal.in{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}.d6{transition-delay:.48s}
 
 /* nav underline animation */
 .nl{position:relative}
@@ -248,9 +248,8 @@ animation:floatOrbs 20s ease-in-out infinite}
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
       <a href="project-lars-chatbot.html" class="card-h reveal d1 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent block">
-        <div class="pf w-full h-64 relative overflow-hidden">
+        <div class="pf w-full aspect-video relative overflow-hidden">
           <img src="images/lars-chatbot/thumbnail.png" alt="LARS Chatbot Dashboard" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-t from-purple-900/60 to-transparent"></div>
         </div>
         <div class="p-7">
           <div class="flex flex-wrap gap-2 mb-4">
@@ -265,9 +264,8 @@ animation:floatOrbs 20s ease-in-out infinite}
       </a>
 
       <a href="project-department-dashboard.html" class="card-h reveal d2 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent block">
-        <div class="pf w-full h-64 relative overflow-hidden">
+        <div class="pf w-full aspect-video relative overflow-hidden">
           <img src="images/department-dashboard/thumbnail.png" alt="Department Analytics Dashboard" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent"></div>
         </div>
         <div class="p-7">
           <div class="flex flex-wrap gap-2 mb-4">
@@ -281,9 +279,8 @@ animation:floatOrbs 20s ease-in-out infinite}
       </a>
 
       <a href="project-devops-dashboard.html" class="card-h reveal d3 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent block">
-        <div class="pf w-full h-64 relative overflow-hidden">
+        <div class="pf w-full aspect-video relative overflow-hidden">
           <img src="images/devops-dashboard/thumbnail.png" alt="DevOps Dashboard" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/60 to-transparent"></div>
         </div>
         <div class="p-7">
           <div class="flex flex-wrap gap-2 mb-4">
@@ -297,9 +294,8 @@ animation:floatOrbs 20s ease-in-out infinite}
       </a>
 
       <a href="project-attendance-system.html" class="card-h reveal d4 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent block">
-        <div class="pf w-full h-64 relative overflow-hidden">
+        <div class="pf w-full aspect-video relative overflow-hidden">
           <img src="images/attendance-system/thumbnail.png" alt="Attendance System Dashboard" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-t from-green-900/60 to-transparent"></div>
         </div>
         <div class="p-7">
           <div class="flex flex-wrap gap-2 mb-4">
@@ -313,9 +309,8 @@ animation:floatOrbs 20s ease-in-out infinite}
       </a>
 
       <a href="project-leave-app.html" class="card-h reveal d5 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent block">
-        <div class="pf w-full h-64 relative overflow-hidden">
+        <div class="pf w-full aspect-video relative overflow-hidden">
           <img src="images/leave-app/thumbnail.png" alt="Leave Management App" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/60 to-transparent"></div>
         </div>
         <div class="p-7">
           <div class="flex flex-wrap gap-2 mb-4">
@@ -329,9 +324,8 @@ animation:floatOrbs 20s ease-in-out infinite}
       </a>
 
       <a href="project-employee-skills.html" class="card-h reveal d6 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent block">
-        <div class="pf w-full h-64 relative overflow-hidden">
+        <div class="pf w-full aspect-video relative overflow-hidden">
           <img src="images/employee-skills/thumbnail.png" alt="Employee Skills Dashboard" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-t from-amber-900/60 to-transparent"></div>
         </div>
         <div class="p-7">
           <div class="flex flex-wrap gap-2 mb-4">
@@ -576,7 +570,7 @@ function init3DSpiral() {
   const textureLoader = new THREE.TextureLoader();
   
   projects.forEach((project, i) => {
-    const geometry = new THREE.BoxGeometry(2.5, 3.5, 0.1);
+    const geometry = new THREE.BoxGeometry(3.2, 1.8, 0.1);
     
     // Use TextureLoader - the proper Three.js way
     const texture = textureLoader.load(
@@ -603,7 +597,7 @@ function init3DSpiral() {
     
     const angle = (i / projects.length) * Math.PI * 2;
     const radius = 5;
-    const height = i * 1.4 - 3.5;
+    const height = i * 1.0 - 2.5;
     
     card.position.x = Math.cos(angle) * radius;
     card.position.z = Math.sin(angle) * radius;

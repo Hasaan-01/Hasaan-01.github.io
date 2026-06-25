@@ -595,14 +595,52 @@ function init3DSpiral() {
     
     const card = new THREE.Mesh(geometry, material);
     
-    // Add border
-    const edges = new THREE.EdgesGeometry(geometry);
-    const lineMaterial = new THREE.LineBasicMaterial({ 
+    // Enhanced border with glow effect - create frame using thin boxes
+    const borderThickness = 0.03;
+    const borderDepth = 0.02;
+    const glowMaterial = new THREE.MeshStandardMaterial({ 
       color: 0xFF6B2B,
-      linewidth: 2
+      emissive: 0xFF6B2B,
+      emissiveIntensity: 0.5,
+      metalness: 0.8,
+      roughness: 0.2
     });
-    const border = new THREE.LineSegments(edges, lineMaterial);
-    card.add(border);
+    
+    // Top border
+    const topBorder = new THREE.Mesh(
+      new THREE.BoxGeometry(3.2 + borderThickness * 2, borderThickness, borderDepth),
+      glowMaterial
+    );
+    topBorder.position.y = 0.9 + borderThickness / 2;
+    topBorder.position.z = 0.06;
+    card.add(topBorder);
+    
+    // Bottom border
+    const bottomBorder = new THREE.Mesh(
+      new THREE.BoxGeometry(3.2 + borderThickness * 2, borderThickness, borderDepth),
+      glowMaterial
+    );
+    bottomBorder.position.y = -0.9 - borderThickness / 2;
+    bottomBorder.position.z = 0.06;
+    card.add(bottomBorder);
+    
+    // Left border
+    const leftBorder = new THREE.Mesh(
+      new THREE.BoxGeometry(borderThickness, 1.8, borderDepth),
+      glowMaterial
+    );
+    leftBorder.position.x = -1.6 - borderThickness / 2;
+    leftBorder.position.z = 0.06;
+    card.add(leftBorder);
+    
+    // Right border
+    const rightBorder = new THREE.Mesh(
+      new THREE.BoxGeometry(borderThickness, 1.8, borderDepth),
+      glowMaterial
+    );
+    rightBorder.position.x = 1.6 + borderThickness / 2;
+    rightBorder.position.z = 0.06;
+    card.add(rightBorder);
     
     const angle = (i / projects.length) * Math.PI * 2;
     const radius = 5;
@@ -618,6 +656,49 @@ function init3DSpiral() {
     cards.push(card);
     scene.add(card);
   });
+
+  // Add Power BI logo in the center of spiral
+  const logoGroup = new THREE.Group();
+  
+  // Load Power BI icon as texture
+  const logoSize = 6.0;
+  
+  // SVG as data URL
+  const svgDataUrl = 'data:image/svg+xml;base64,' + btoa('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="1000px" height="1000px"><path fill="#eda503" d="M38,44H26c-0.552,0-1-0.448-1-1V5c0-0.552,0.448-1,1-1h12c0.552,0,1,0.448,1,1v38 C39,43.552,38.552,44,38,44z"/><path fill="#ffca28" d="M30,44H18c-0.552,0-1-0.448-1-1V15c0-0.552,0.448-1,1-1h12c0.552,0,1,0.448,1,1v28 C31,43.552,30.552,44,30,44z"/><path fill="#ffe082" d="M22,44H10c-0.552,0-1-0.448-1-1V25c0-0.552,0.448-1,1-1h12c0.552,0,1,0.448,1,1v18 C23,43.552,22.552,44,22,44z"/></svg>');
+  
+  // Create canvas to render SVG
+  const canvas2D = document.createElement('canvas');
+  canvas2D.width = 512;
+  canvas2D.height = 512;
+  const ctx = canvas2D.getContext('2d');
+  
+  const img = new Image();
+  img.onload = function() {
+    ctx.clearRect(0, 0, 512, 512);
+    ctx.drawImage(img, 0, 0, 512, 512);
+    
+    const texture = new THREE.CanvasTexture(canvas2D);
+    texture.needsUpdate = true;
+    
+    const logoMaterial = new THREE.MeshStandardMaterial({ 
+      map: texture,
+      transparent: true,
+      side: THREE.DoubleSide,
+      metalness: 0.2,
+      roughness: 0.6
+    });
+    
+    const logoPlane = new THREE.Mesh(
+      new THREE.PlaneGeometry(logoSize, logoSize),
+      logoMaterial
+    );
+    logoGroup.add(logoPlane);
+  };
+  img.src = svgDataUrl;
+  
+  // Position logo in center
+  logoGroup.position.set(0, 0, 0);
+  scene.add(logoGroup);
 
   // Interaction
   let isDragging = false;
@@ -787,6 +868,10 @@ function init3DSpiral() {
         card.scale.y += (1 - card.scale.y) * 0.1;
       }
     });
+    
+    // Animate Power BI logo - always face camera with slow spin
+    logoGroup.lookAt(camera.position);
+    logoGroup.rotation.z += 0.003; // Slow spin for visual interest
     
     renderer.render(scene, camera);
   }

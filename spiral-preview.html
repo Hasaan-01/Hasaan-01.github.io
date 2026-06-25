@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spiral Design Variations - Preview</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.header {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #FF6B2B, #FFB347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header p {
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 30px;
+  padding: 40px 20px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.variant {
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 20px;
+  border: 2px solid rgba(255,107,43,0.3);
+  transition: all 0.3s;
+}
+
+.variant:hover {
+  border-color: #FF6B2B;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(255,107,43,0.3);
+}
+
+.variant h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #FF6B2B;
+}
+
+.variant p {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.canvas-container {
+  width: 100%;
+  height: 400px;
+  background: #0a0a0a;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.label {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(255,107,43,0.9);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #888;
+}
+
+.btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 30px;
+  background: #FF6B2B;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background: #FF8F5C;
+  transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🎨 3D Spiral Design Variations</h1>
+  <p>Preview different design concepts for your portfolio showcase</p>
+</div>
+
+<div class="grid">
+
+  <!-- Variation 1: Current Design Enhanced -->
+  <div class="variant">
+    <h2>1. Current Design (Enhanced)</h2>
+    <p>Your existing spiral with improved lighting and particle effects. Subtle and professional.</p>
+    <div class="canvas-container">
+      <canvas id="canvas1"></canvas>
+      <div class="label">Current</div>
+    </div>
+  </div>
+
+  <!-- Variation 2: Double Helix -->
+  <div class="variant">
+    <h2>2. Double Helix DNA</h2>
+    <p>Two intertwined spirals rotating in opposite directions. Dynamic and scientific aesthetic.</p>
+    <div class="canvas-container">
+      <canvas id="canvas2"></canvas>
+      <div class="label">DNA Helix</div>
+    </div>
+  </div>
+
+  <!-- Variation 3: Orbital Planets -->
+  <div class="variant">
+    <h2>3. Orbital Planets</h2>
+    <p>Cards orbit like planets around the Power BI sun. Different speeds, sizes based on importance.</p>
+    <div class="canvas-container">
+      <canvas id="canvas3"></canvas>
+      <div class="label">Solar System</div>
+    </div>
+  </div>
+
+  <!-- Variation 4: Circular Tiers -->
+  <div class="variant">
+    <h2>4. Circular Tiers</h2>
+    <p>Concentric circles at different heights. Clean, organized, easy to navigate.</p>
+    <div class="canvas-container">
+      <canvas id="canvas4"></canvas>
+      <div class="label">Gallery Wall</div>
+    </div>
+  </div>
+
+  <!-- Variation 5: Vortex Tunnel -->
+  <div class="variant">
+    <h2>5. Vortex Tunnel</h2>
+    <p>Cards recede into infinite tunnel. Strong perspective and depth illusion.</p>
+    <div class="canvas-container">
+      <canvas id="canvas5"></canvas>
+      <div class="label">Portal</div>
+    </div>
+  </div>
+
+  <!-- Variation 6: Floating Islands -->
+  <div class="variant">
+    <h2>6. Floating Islands</h2>
+    <p>Each project on elevated platform with shadows. Gentle bobbing animation.</p>
+    <div class="canvas-container">
+      <canvas id="canvas6"></canvas>
+      <div class="label">Sky Islands</div>
+    </div>
+  </div>
+
+  <!-- Variation 7: Honeycomb Helix -->
+  <div class="variant">
+    <h2>7. Honeycomb Helix</h2>
+    <p>Hexagonal cards in helical pattern. Efficient use of space, unique look.</p>
+    <div class="canvas-container">
+      <canvas id="canvas7"></canvas>
+      <div class="label">Hexagonal</div>
+    </div>
+  </div>
+
+  <!-- Variation 8: Wave Carousel -->
+  <div class="variant">
+    <h2>8. Wave Carousel</h2>
+    <p>Cards follow a sine wave pattern. Smooth, flowing, rhythmic movement.</p>
+    <div class="canvas-container">
+      <canvas id="canvas8"></canvas>
+      <div class="label">Wave Flow</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p style="font-size: 1.2rem; margin-bottom: 20px;">Which design catches your eye? 👀</p>
+  <a href="index.html" class="btn">← Back to Portfolio</a>
+</div>
+
+<script>
+// Common project data
+const projectColors = ['#a855f7', '#3b82f6', '#6366f1', '#10b981', '#059669', '#f59e0b'];
+
+// ===== VARIATION 1: Current Design Enhanced =====
+function initVariant1() {
+  const canvas = document.getElementById('canvas1');
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  
+  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+  camera.position.z = 12;
+  camera.position.y = 2;
+  
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+  scene.add(ambientLight);
+  
+  // Add particles
+  const particleGeometry = new THREE.BufferGeometry();
+  const particleCount = 100;
+  const positions = new Float32Array(particleCount * 3);
+  for (let i = 0; i < particleCount * 3; i++) {
+    positions[i] = (Math.random() - 0.5) * 20;
+  }
+  particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  const particleMaterial = new THREE.PointsMaterial({ color: 0xFF6B2B, size: 0.05, transparent: true, opacity: 0.6 });
+  const particles = new THREE.Points(particleGeometry, particleMaterial);
+  scene.add(particles);
+  
+  const cards = [];
+  for (let i = 0; i < 6; i++) {
+    const geometry = new THREE.BoxGeometry(3.2, 1.8, 0.1);
+    const material = new THREE.MeshStandardMaterial({ 
+      color: projectColors[i],
+      metalness: 0.3,
+      roughness: 0.5
+    });
+    const card = new THREE.Mesh(geometry, material);
+    
+    const angle = (i / 6) * Math.PI * 2;
+    card.position.x = Math.cos(angle) * 5;
+    card.position.z = Math.sin(angle) * 5;
+    card.position.y = i * 1.0 - 2.5;
+    card.lookAt(0, card.position.y, 0);
+    
+    cards.push(card);
+    scene.add(card);
+  }
+  
+  // Center logo
+  const logoGeometry = new THREE.BoxGeometry(3, 3, 0.2);
+  const logoMaterial = new THREE.MeshStandardMaterial({ color: 0xF2C811, emissive: 0xF2C811, emissiveIntensity: 0.5 });
+  const logo = new THREE.Mesh(logoGeometry, logoMaterial);
+  scene.add(logo);
+  
+  let rotation = 0;
+  function animate() {
+    requestAnimationFrame(animate);
+    rotation -= 0.005;
+    particles.rotation.y += 0.001;
+    
+    cards.forEach((card, i) => {
+      const angle = (i / 6) * Math.PI * 2 + rotation;
+      card.position.x = Math.cos(angle) * 5;
+      card.position.z = Math.sin(angle) * 5;
+      card.lookAt(0, card.position.y, 0);
+    });
+    
+    logo.lookAt(camera.position);
+    renderer.render(scene, camera);
+  }
+  animate();
+}
+
+// ===== VARIATION 2: Double Helix =====
+function initVariant2() {
+  const canvas = document.getElementById('canvas2');
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  
+  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+  camera.position.z = 15;
+  camera.position.y = 0;
+  
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+  scene.add(ambientLight);
+  
+  const helix1 = [];
+  const helix2 = [];
+  
+  for (let i = 0; i < 4; i++) {
+    // Helix 1
+    const card1 = new THREE.Mesh(
+      new THREE.BoxGeometry(2.5, 1.4, 0.1),
+      new THREE.MeshStandardMaterial({ color: 0x3b82f6, metalness: 0.5, roughness: 0.3 })
+    );
+    const angle1 = (i / 4) * Math.PI * 2;
+    card1.position.x = Math.cos(angle1) * 4;
+    card1.position.z = Math.sin(angle1) * 4;
+    card1.position.y = i * 2 - 3;
+    card1.lookAt(0, card1.position.y, 0);
+    helix1.push(card1);
+    scene.add(card1);
+    
+    // Helix 2 (opposite)
+    const card2 = new THREE.Mesh(
+      new THREE.BoxGeometry(2.5, 1.4, 0.1),
+      new THREE.MeshStandardMaterial({ color: 0xFF6B2B, metalness: 0.5, roughness: 0.3 })
+    );
+    const angle2 = (i / 4) * Math.PI * 2 + Math.PI;
+    card2.position.x = Math.cos(angle2) * 4;
+    card2.position.z = Math.sin(angle2) * 4;
+    card2.position.y = i * 2 - 3;
+    card2.lookAt(0, card2.position.y, 0);
+    helix2.push(card2);
+    scene.add(card2);
+  }
+  
+  let rotation = 0;
+  function animate() {
+    requestAnimationFrame(animate);
+    rotation += 0.01;
+    
+    helix1.forEach((card, i) => {
+      const angle = (i / 4) * Math.PI * 2 + rotation;
+      card.position.x = Math.cos(angle) * 4;
+      card.position.z = Math.sin(angle) * 4;
+      card.lookAt(0, card.position.y, 0);
+    });
+    
+    helix2.forEach((card, i) => {
+      const angle = (i / 4) * Math.PI * 2 + Math.PI - rotation;
+      card.position.x = Math.cos(angle) * 4;
+      card.position.z = Math.sin(angle) * 4;
+      card.lookAt(0, card.position.y, 0);
+    });
+    
+    renderer.render(scene, camera);
+  }
+  animate();
+}
+
+// ===== VARIATION 3: Orbital Planets =====
+function initVariant3() {
+  const canvas = document.getElementById('canvas3');
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  
+  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+  camera.position.z = 15;
+  camera.position.y = 8;
+  camera.lookAt(0, 0, 0);
+  
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+  scene.add(ambientLight);
+  
+  const pointLight = new THREE.PointLight(0xFFD700, 2, 100);
+  scene.add(pointLight);
+  
+  // Sun (Power BI logo)
+  const sun = new THREE.Mesh(
+    new THREE.SphereGeometry(1.5, 32, 32),
+    new THREE.MeshStandardMaterial({ color: 0xFFD700, emissive: 0xFFD700, emissiveIntensity: 1 })
+  );
+  scene.add(sun);
+  
+  const orbits = [
+    { radius: 3, speed: 0.02, size: 1.2 },
+    { radius: 5, speed: 0.015, size: 1.0 },
+    { radius: 7, speed: 0.01, size: 0.9 },
+    { radius: 9, speed: 0.008, size: 0.8 },
+    { radius: 11, speed: 0.006, size: 0.7 },
+    { radius: 13, speed: 0.005, size: 0.6 }
+  ];
+  
+  const planets = orbits.map((orbit, i) => {
+    const planet = new THREE.Mesh(
+      new THREE.BoxGeometry(orbit.size * 2, orbit.size * 1.2, 0.1),
+      new THREE.MeshStandardMaterial({ color: projectColors[i], metalness: 0.4, roughness: 0.4 })
+    );
+    planet.userData = { angle: (i / 6) * Math.PI * 2, ...orbit };
+    scene.add(planet);
+    return planet;
+  });
+  
+  function animate() {
+    requestAnimationFrame(animate);
+    sun.rotation.y += 0.005;
+    
+    planets.forEach(planet => {
+      planet.userData.angle += planet.userData.speed;
+      planet.position.x = Math.cos(planet.userData.angle) * planet.userData.radius;
+      planet.position.z = Math.sin(planet.userData.angle) * planet.userData.radius;
+      planet.lookAt(0, 0, 0);
+    });
+    
+    renderer.render(scene, camera);
+  }
+  animate();
+}
+
+// ===== VARIATION 4: Circular Tiers =====
+function initVariant4() {
+  const canvas = document.getElementById('canvas4');
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  
+  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+  camera.position.z = 18;
+  camera.position.y = 5;
+  camera.lookAt(0, 0, 0);
+  
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+  scene.add(ambientLight);
+  
+  const tiers = [
+    { y: -2, radius: 4, count: 2 },
+    { y: 0, radius: 6, count: 2 },
+    { y: 2, radius: 8, count: 2 }
+  ];
+  
+  const cards = [];
+  tiers.forEach((tier, tierIndex) => {
+    for (let i = 0; i < tier.count; i++) {
+      const angle = (i / tier.count) * Math.PI * 2;
+      const card = new THREE.Mesh(
+        new THREE.BoxGeometry(3, 1.8, 0.1),
+        new THREE.MeshStandardMaterial({ 
+          color: projectColors[tierIndex * 2 + i],
+          metalness: 0.3,
+          roughness: 0.5
+        })
+      );
+      card.position.x = Math.cos(angle) * tier.radius;
+      card.position.z = Math.sin(angle) * tier.radius;
+      card.position.y = tier.y;
+      card.lookAt(0, tier.y, 0);
+      cards.push({ mesh: card, angle, tier });
+      scene.add(card);
+    }
+  });
+  
+  const logo = new THREE.Mesh(
+    new THREE.BoxGeometry(3, 3, 0.2),
+    new THREE.MeshStandardMaterial({ color: 0xF2C811, emissive: 0xF2C811, emissiveIntensity: 0.5 })
+  );
+  scene.add(logo);
+  
+  let rotation = 0;
+  function animate() {
+    requestAnimationFrame(animate);
+    rotation += 0.005;
+    
+    cards.forEach(({ mesh, angle, tier }) => {
+      const newAngle = angle + rotation;
+      mesh.position.x = Math.cos(newAngle) * tier.radius;
+      mesh.position.z = Math.sin(newAngle) * tier.radius;
+      mesh.lookAt(0, tier.y, 0);
+    });
+    
+    logo.lookAt(camera.position);
+    renderer.render(scene, camera);
+  }
+  animate();
+}
+
+// ===== VARIATION 5: Vortex Tunnel =====
+function initVariant5() {
+  const canvas = document.getElementById('canvas5');
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  
+  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+  camera.position.z = 15;
+  
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+  scene.add(ambientLight);
+  
+  const cards = [];
+  for (let i = 0; i < 8; i++) {
+    const depth = i * 3;
+    const scale = 1 - (i * 0.12);
+    const angle = (i / 8) * Math.PI * 2;
+    const radius = 2 + (i * 0.5);
+    
+    const card = new THREE.Mesh(
+      new THREE.BoxGeometry(3 * scale, 1.8 * scale, 0.1),
+      new THREE.MeshStandardMaterial({ 
+        color: projectColors[i % 6],
+        metalness: 0.4,
+        roughness: 0.4,
+        transparent: true,
+        opacity: 1 - (i * 0.1)
+      })
+    );
+    card.position.x = Math.cos(angle) * radius * scale;
+    card.position.y = Math.sin(angle) * radius * scale;
+    card.position.z = -depth;
+    card.lookAt(0, 0, -100);
+    cards.push({ mesh: card, depth, angle, radius, scale });
+    scene.add(card);
+  }
+  
+  let rotation = 0;
+  function animate() {
+    requestAnimationFrame(animate);
+    rotation += 0.02;
+    
+    cards.forEach(({ mesh, depth, angle, radius, scale }) => {
+      const newAngle = angle + rotation;
+      mesh.position.x = Math.cos(newAngle) * radius * scale;
+      mesh.position.y = Math.sin(newAngle) * radius * scale;
+    });
+    
+    renderer.render(scene, camera);
+  }
+  animate();
+}
+
+// ===== VARIATION 6: Floating Islands =====
+function initVariant6() {
+  const canvas = document.getElementById('canvas6');
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  
+  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+  camera.position.z = 15;
+  camera.position.y = 5;
+  camera.lookAt(0, 0, 0);
+  
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+  scene.add(ambientLight);
+  
+  const islands = [];
+  for (let i = 0; i < 6; i++) {
+    const group = new THREE.Group();
+    
+    // Platform
+    const platform = new THREE.Mesh(
+      new THREE.CylinderGeometry(1.8, 2, 0.3, 32),
+      new THREE.MeshStandardMaterial({ color: 0x4a5568, metalness: 0.5, roughness: 0.5 })
+    );
+    group.add(platform);
+    
+    // Card on top
+    const card = new THREE.Mesh(
+      new THREE.BoxGeometry(3, 1.8, 0.1),
+      new THREE.MeshStandardMaterial({ color: projectColors[i], metalness: 0.3, roughness: 0.5 })
+    );
+    card.position.y = 0.3;
+    group.add(card);
+    
+    // Shadow
+    const shadow = new THREE.Mesh(
+      new THREE.PlaneGeometry(4, 4),
+      new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.3 })
+    );
+    shadow.rotation.x = -Math.PI / 2;
+    shadow.position.y = -2;
+    group.add(shadow);
+    
+    const angle = (i / 6) * Math.PI * 2;
+    group.position.x = Math.cos(angle) * 6;
+    group.position.z = Math.sin(angle) * 6;
+    group.position.y = Math.sin(i) * 2;
+    
+    islands.push({ group, baseY: group.position.y, phase: i });
+    scene.add(group);
+  }
+  
+  let time = 0;
+  function animate() {
+    requestAnimationFrame(animate);
+    time += 0.02;
+    
+    islands.forEach(({ group, baseY, phase }) => {
+      group.position.y = baseY + Math.sin(time + phase) * 0.3;
+      group.rotation.y += 0.005;
+    });
+    
+    renderer.render(scene, camera);
+  }
+  animate();
+}
+
+// ===== VARIATION 7: Honeycomb Helix =====
+function initVariant7() {
+  const canvas = document.getElementById('canvas7');
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  
+  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+  camera.position.z = 15;
+  camera.position.y = 2;
+  
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+  scene.add(ambientLight);
+  
+  // Create hexagon geometry
+  const hexShape = new THREE.Shape();
+  for (let i = 0; i < 6; i++) {
+    const angle = (i / 6) * Math.PI * 2;
+    const x = Math.cos(angle) * 1.5;
+    const y = Math.sin(angle) * 1.5;
+    if (i === 0) hexShape.moveTo(x, y);
+    else hexShape.lineTo(x, y);
+  }
+  hexShape.closePath();
+  
+  const hexGeometry = new THREE.ShapeGeometry(hexShape);
+  
+  const hexagons = [];
+  for (let i = 0; i < 6; i++) {
+    const hex = new THREE.Mesh(
+      hexGeometry,
+      new THREE.MeshStandardMaterial({ 
+        color: projectColors[i],
+        metalness: 0.4,
+        roughness: 0.4,
+        side: THREE.DoubleSide
+      })
+    );
+    
+    const angle = (i / 6) * Math.PI * 2;
+    hex.position.x = Math.cos(angle) * 5;
+    hex.position.z = Math.sin(angle) * 5;
+    hex.position.y = i * 1.5 - 4;
+    hex.lookAt(0, hex.position.y, 0);
+    
+    hexagons.push(hex);
+    scene.add(hex);
+  }
+  
+  let rotation = 0;
+  function animate() {
+    requestAnimationFrame(animate);
+    rotation -= 0.008;
+    
+    hexagons.forEach((hex, i) => {
+      const angle = (i / 6) * Math.PI * 2 + rotation;
+      hex.position.x = Math.cos(angle) * 5;
+      hex.position.z = Math.sin(angle) * 5;
+      hex.lookAt(0, hex.position.y, 0);
+    });
+    
+    renderer.render(scene, camera);
+  }
+  animate();
+}
+
+// ===== VARIATION 8: Wave Carousel =====
+function initVariant8() {
+  const canvas = document.getElementById('canvas8');
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  
+  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+  camera.position.z = 18;
+  camera.position.y = 3;
+  
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+  scene.add(ambientLight);
+  
+  const cards = [];
+  for (let i = 0; i < 8; i++) {
+    const card = new THREE.Mesh(
+      new THREE.BoxGeometry(2.5, 1.5, 0.1),
+      new THREE.MeshStandardMaterial({ 
+        color: projectColors[i % 6],
+        metalness: 0.3,
+        roughness: 0.5
+      })
+    );
+    
+    const angle = (i / 8) * Math.PI * 2;
+    card.position.x = Math.cos(angle) * 8;
+    card.position.z = Math.sin(angle) * 8;
+    card.position.y = 0;
+    card.lookAt(0, 0, 0);
+    
+    cards.push({ mesh: card, angle });
+    scene.add(card);
+  }
+  
+  let time = 0;
+  function animate() {
+    requestAnimationFrame(animate);
+    time += 0.02;
+    
+    cards.forEach(({ mesh, angle }, i) => {
+      const newAngle = angle - time * 0.3;
+      mesh.position.x = Math.cos(newAngle) * 8;
+      mesh.position.z = Math.sin(newAngle) * 8;
+      mesh.position.y = Math.sin(newAngle * 2 + i) * 2;
+      mesh.lookAt(0, mesh.position.y, 0);
+    });
+    
+    renderer.render(scene, camera);
+  }
+  animate();
+}
+
+// Initialize all variants
+window.addEventListener('load', () => {
+  initVariant1();
+  initVariant2();
+  initVariant3();
+  initVariant4();
+  initVariant5();
+  initVariant6();
+  initVariant7();
+  initVariant8();
+});
+</script>
+
+</body>
+</html>

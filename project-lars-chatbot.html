@@ -113,6 +113,15 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
       </div>
     </section>
 
+    <!-- Demo Video -->
+    <section class="mb-12 fade-in">
+      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">🎥 AI Chatbot Demo</h2>
+      <div class="relative rounded-2xl overflow-hidden border-2 border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 shadow-2xl" style="padding-top: 56.25%;">
+        <iframe src="https://drive.google.com/file/d/1abFi82KLul3oXTzcBUi-wHpEvGcNTVUB/preview" class="absolute inset-0 w-full h-full" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+      </div>
+      <p class="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 italic">Watch the AI chatbot in action - natural language queries powered by Azure OpenAI</p>
+    </section>
+
     <!-- Project Overview -->
     <section class="mb-12 fade-in">
       <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Project Overview</h2>
@@ -252,6 +261,47 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
             </ul>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Data Architecture -->
+    <section class="mb-12 fade-in">
+      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">📊 Galaxy Schema Data Model</h2>
+      <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
+        The platform is built on a sophisticated galaxy schema integrating 40+ tables from the Learning Management System. This architecture supports both complex analytical queries and real-time AI processing.
+      </p>
+      
+      <div class="rounded-2xl overflow-hidden border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl mb-6">
+        <img src="images/lars-chatbot/data-model.png" alt="LARS Learning Analytics Data Model - Galaxy Schema" class="w-full h-auto">
+      </div>
+      
+      <div class="bg-purple-50 dark:bg-purple-900/20 rounded-xl p-6 border border-purple-200 dark:border-purple-800">
+        <h3 class="font-bold text-zinc-900 dark:text-white mb-2 flex items-center gap-2">
+          <svg class="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+          Galaxy Schema Highlights
+        </h3>
+        <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-2">
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span>40+ interrelated tables from LMS consolidated into optimized analytical structure</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span>Dual-purpose design: normalized for reporting, denormalized for AI model training</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span>Multiple fact tables for courses, enrollments, and student interactions</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span>Vector embedding tables for semantic search and recommendation engine</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span>Optimized for both Azure OpenAI SQL generation and semantic similarity queries</span>
+          </li>
+        </ul>
       </div>
     </section>
 

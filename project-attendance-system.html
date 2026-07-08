@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Multi-Account AWS & GitHub DevOps Analytics Platform - Muhammad Hasaan">
+<meta name="description" content="Automated Attendance & Leave Reporting System - Muhammad Hasaan">
 <title>Automated Attendance System - Muhammad Hasaan</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
@@ -85,50 +85,299 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
       </div>
     </div>
 
+    <!-- PLACEHOLDER: Add project date range (e.g., "Jun 2024 – Sep 2024") -->
     <section class="mb-12 fade-in">
       <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-4">Project Overview</h2>
       <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
-        Developed a fully automated SQL-based attendance and leave reporting pipeline that consolidates employee check-in/out data, absence tracking, and leave requests into a unified Power BI reporting system.
+        Python + SQL automation system that pulls attendance and leave data from multiple sources, processes balances, and auto-generates daily/weekly Power BI reports with email delivery.
       </p>
       <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-        This solution eliminates manual data entry, provides real-time attendance insights, and integrates seamlessly with existing HR systems for comprehensive workforce analytics.
+        Replaces manual reporting with scheduled scripts that handle data extraction, transformation, and distribution — reducing HR reporting effort by ~80%.
       </p>
     </section>
 
-    <!-- Data Architecture -->
+    <!-- Results / Impact -->
     <section class="mb-12 fade-in">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">📊 Data Architecture</h2>
-      <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
-        The system is built on a normalized SQL database architecture with automated stored procedures that handle data transformation and aggregation.
-      </p>
-      
-      <div class="rounded-2xl overflow-hidden border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl mb-6">
-        <img src="images/attendance-system/data-model.png" alt="Attendance System Data Model" class="w-full h-auto">
+      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Results & Impact</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/10 rounded-xl p-6 border border-orange-200 dark:border-orange-800 text-center">
+          <div class="text-3xl font-bold text-accent mb-2">~80%</div>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">Reduction in manual HR reporting time</p>
+        </div>
+        <div class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/10 rounded-xl p-6 border border-blue-200 dark:border-blue-800 text-center">
+          <div class="text-3xl font-bold text-blue-600 mb-2"><!-- PLACEHOLDER: e.g. Daily --></div>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">Automated report generation frequency</p>
+        </div>
+        <div class="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/10 rounded-xl p-6 border border-green-200 dark:border-green-800 text-center">
+          <div class="text-3xl font-bold text-green-600 mb-2"><!-- PLACEHOLDER: e.g. 100+ --></div>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">Employees tracked across locations</p>
+        </div>
       </div>
+      <!-- PLACEHOLDER: Add specific quantified impact metrics here -->
+    </section>
+
+    <!-- Technical Deep Dive (Collapsible) -->
+    <section class="mb-12 fade-in" x-data="{ open: false }">
+      <button @click="open = !open" class="w-full flex items-center justify-between bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+        <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white">Technical Deep Dive</h2>
+        <svg x-show="!open" class="w-6 h-6 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        <svg x-show="open" class="w-6 h-6 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+      </button>
       
-      <div class="bg-green-50 dark:bg-green-900/20 rounded-xl p-6 border border-green-200 dark:border-green-800">
-        <h3 class="font-bold text-zinc-900 dark:text-white mb-2 flex items-center gap-2">
-          <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-          SQL Automation Highlights
-        </h3>
-        <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-2">
-          <li class="flex items-start gap-2">
-            <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-            <span>Scheduled stored procedures run daily to consolidate attendance records</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-            <span>Automatic calculation of worked hours, overtime, and absence patterns</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-            <span>Integration with leave request system for comprehensive attendance tracking</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-            <span>Power BI Report Builder integration for paginated reports and email subscriptions</span>
-          </li>
-        </ul>
+      <div x-show="open" x-collapse class="mt-4 space-y-6">
+        <!-- Data Architecture -->
+        <div>
+          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-4">📊 Data Architecture</h3>
+          <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
+            The system is built on a normalized SQL database architecture with automated stored procedures that handle data transformation and aggregation.
+          </p>
+          
+          <div class="rounded-2xl overflow-hidden border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl mb-6">
+            <img src="images/attendance-system/data-model.png" alt="Attendance System Data Model" class="w-full h-auto">
+          </div>
+          
+          <div class="bg-green-50 dark:bg-green-900/20 rounded-xl p-6 border border-green-200 dark:border-green-800">
+            <h4 class="font-bold text-zinc-900 dark:text-white mb-2 flex items-center gap-2">
+              <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+              SQL Automation Highlights
+            </h4>
+            <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-2">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <span>Scheduled stored procedures run daily to consolidate attendance records</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <span>Automatic calculation of worked hours, overtime, and absence patterns</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <span>Integration with leave request system for comprehensive attendance tracking</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <span>Power BI Report Builder integration for paginated reports and email subscriptions</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Automation Scripts -->
+        <div>
+          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-4">📦 Automation Scripts</h3>
+          <div class="space-y-4">
+            <details class="group bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between px-5 py-4 cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="text-xs font-medium px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400">SQL View</span>
+                  <span class="font-medium text-zinc-900 dark:text-white">vw_checkin_checkout</span>
+                </div>
+                <span class="text-zinc-400 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div class="px-5 pb-5">
+                <pre class="bg-zinc-950 text-zinc-100 p-5 rounded-2xl overflow-x-auto text-sm"><code>ALTER view [dbo].[vw_checkin_checkout]
+as
+SELECT 
+CONCAT(hr.emp_firstname,' ',hr.emp_lastname) AS employee_name
+,hr.emp_pin AS employee_id
+,hr.emp_email AS employee_email
+,hdt.dept_name AS employee_dept
+,hdp.posi_name AS employee_position
+,CASE 
+		WHEN ap.terminal_id = 1 THEN 'Rawalpindi' 
+		WHEN ap.terminal_id = 2 then 'Lahore'
+		WHEN ez.zone_id = 2 THEN 'Rawalpindi' 
+		WHEN ez.zone_id = 1 then 'Lahore'
+        ELSE ''  END AS Location
+,CAST(ap.punch_time AS DATE) AS punch_date
+,MIN(CASE WHEN ap.workstate = 0 THEN ap.punch_time END) AS checkin
+,MAX(CASE WHEN ap.workstate = 1 THEN ap.punch_time END) AS check_out
+,MIN(CASE WHEN ap.workstate = 2 THEN ap.punch_time END) AS Break_in
+,MAX(CASE WHEN ap.workstate = 4 THEN ap.punch_time END) AS Break_out 
+
+FROM hr_employee hr
+LEFT JOIN hr_department hdt ON hdt.id = hr.department_id
+LEFT JOIN hr_position hdp ON hdp.id = hr.position_id
+LEFT JOIN att_punches ap ON ap.employee_id = hr.id
+left join [ZKTeco].[dbo].att_employee_zone ez on ez.employee_id = hr.id
+WHERE hr.emp_active = 1
+GROUP BY CONCAT(hr.emp_firstname,' ',hr.emp_lastname),hr.emp_pin,hr.emp_email,hdt.dept_name,hdp.posi_name
+,CASE WHEN ap.terminal_id = 1 THEN 'Rawalpindi' 
+		WHEN ap.terminal_id = 2 then 'Lahore'
+		WHEN ez.zone_id = 2 THEN 'Rawalpindi' 
+		WHEN ez.zone_id = 1 then 'Lahore'
+        ELSE ''
+		END
+,CAST(ap.punch_time AS DATE)
+GO</code></pre>
+              </div>
+            </details>
+
+            <details class="group bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between px-5 py-4 cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="text-xs font-medium px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400">SQL Procedure</span>
+                  <span class="font-medium text-zinc-900 dark:text-white">absent_data_run</span>
+                </div>
+                <span class="text-zinc-400 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div class="px-5 pb-5">
+                <pre class="bg-zinc-950 text-zinc-100 p-5 rounded-2xl overflow-x-auto text-sm"><code>ALTER PROCEDURE [dbo].[absent_data_run]
+AS
+BEGIN
+    DELETE FROM absent_data WHERE punch_date = CAST(GETDATE() AS DATE);
+    
+    INSERT INTO absent_data (employee_id, employee_name, punch_date, employee_email, employee_dept, employee_position)
+    SELECT  
+        hr.id AS employee_id,
+        CONCAT(hr.emp_firstname, ' ', hr.emp_lastname) AS employee_name,
+        CAST(GETDATE() AS DATE) AS punch_date,
+        hr.emp_email,
+        hdt.dept_name AS employee_dept,
+        hdp.posi_name AS employee_position
+    FROM hr_employee hr
+    LEFT JOIN hr_department hdt ON hdt.id = hr.department_id
+    LEFT JOIN hr_position hdp ON hdp.id = hr.position_id
+    WHERE hr.id NOT IN (
+        SELECT DISTINCT employee_id 
+        FROM vw_checkin_checkout 
+        WHERE punch_date = CAST(GETDATE() AS DATE)
+    )
+    AND hr.emp_active = 1;
+END;
+GO</code></pre>
+              </div>
+            </details>
+
+            <details class="group bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between px-5 py-4 cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="text-xs font-medium px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400">SQL View</span>
+                  <span class="font-medium text-zinc-900 dark:text-white">vw_attdata (Main)</span>
+                </div>
+                <span class="text-zinc-400 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div class="px-5 pb-5">
+                <pre class="bg-zinc-950 text-zinc-100 p-5 rounded-2xl overflow-x-auto text-sm"><code>ALTER view [dbo].[vw_attdata] as
+select x.*,z.leaveStatus,z.StartDate,z.EndDate from (
+SELECT 
+    CONCAT(hr.emp_firstname, ' ', hr.emp_lastname) AS employee_name,
+    hr.id AS employee_id,
+    hr.emp_email AS employee_email,
+    hdt.dept_name AS employee_dept,
+    hdp.posi_name AS employee_position,
+    CASE 
+        WHEN ap.terminal_id = 1 THEN 'Rawalpindi' 
+		WHEN ap.terminal_id = 2 then 'Lahore'
+		WHEN ez.zone_id = 2 THEN 'Rawalpindi' 
+		WHEN ez.zone_id = 1 then 'Lahore'
+        ELSE '' 
+    END AS Attendance_Location_,
+    CAST(ap.punch_time AS DATE) AS punch_date,
+    MIN(CASE WHEN ap.workstate = 0 THEN ap.punch_time END) AS Attendance_checkin_,
+    MAX(CASE WHEN ap.workstate = 1 THEN ap.punch_time END) AS Attendance_check_out_,
+    MIN(CASE WHEN ap.workstate = 2 THEN ap.punch_time END) AS Attendance_Break_in_,
+    MAX(CASE WHEN ap.workstate = 4 THEN ap.punch_time END) AS Attendance_Break_out_,
+    
+    case
+   wHEN MIN(CASE WHEN ap.workstate = 0 THEN ap.punch_time END) IS NULL then 'Not Available On-Site'
+  WHEN CAST(ap.punch_time AS DATE) BETWEEN '2025-03-03' AND '2025-03-31' THEN
+  case
+  when CAST(MIN(CASE WHEN ap.workstate = 0 THEN ap.punch_time END) AS TIME)> '08:20:59'
+  THEN 'Late'
+            ELSE 'On Time'
+        END
+WHEN CAST(MIN(CASE WHEN ap.workstate = 0 THEN ap.punch_time END) AS TIME) > '09:20:59' 
+    THEN 'Late' 
+    ELSE 'On Time'
+END AS AttendanceStatus,
+
+   CASE
+    WHEN MAX(CASE WHEN ap.workstate = 1 THEN ap.punch_time END) IS NULL 
+    THEN ''
+    WHEN CAST(ap.punch_time AS DATE) BETWEEN '2025-03-03' AND '2025-03-31' THEN
+        CASE 
+            WHEN CAST(MAX(CASE WHEN ap.workstate = 1 THEN ap.punch_time END) AS TIME) < '15:27:00' 
+            THEN 'Early Out'
+            ELSE 'Out Timely'
+        END
+    WHEN CAST(MAX(CASE WHEN ap.workstate = 1 THEN ap.punch_time END) AS TIME) < '16:57:00' 
+    THEN 'Early Out'
+    ELSE 'Out Timely'
+END AS CheckoutStatus
+
+FROM [ZKTeco].[dbo].hr_employee hr
+LEFT JOIN [ZKTeco].[dbo].hr_department hdt ON hdt.id = hr.department_id
+LEFT JOIN [ZKTeco].[dbo].hr_position hdp ON hdp.id = hr.position_id
+LEFT JOIN [ZKTeco].[dbo].att_punches ap ON ap.employee_id = hr.id
+left join [ZKTeco].[dbo].att_employee_zone ez on ez.employee_id = hr.id
+
+WHERE hr.emp_active = 1
+and cast(ap.punch_time as date) not in ('2025-01-15','2025-01-16')
+
+GROUP BY 
+    CONCAT(hr.emp_firstname, ' ', hr.emp_lastname),
+    hr.id,
+    hr.emp_email,
+    hdt.dept_name,
+    hdp.posi_name,
+    CASE 
+        WHEN ap.terminal_id = 1 THEN 'Rawalpindi' 
+		WHEN ap.terminal_id = 2 then 'Lahore'
+		WHEN ez.zone_id = 2 THEN 'Rawalpindi' 
+		WHEN ez.zone_id = 1 then 'Lahore'
+        ELSE '' 
+    END,
+    CAST(ap.punch_time AS DATE)
+union all
+SELECT  
+         hr.employee_name AS employee_name
+		,hr.employee_id AS employee_id
+		,hr.employee_email as employee_email
+        ,hr.employee_dept AS employee_dept
+        ,hr.employee_position AS employee_position
+		,azn.ZoneName as Attendance_Location_
+		,hr.punch_date AS punch_date
+	    ,null AS Attendance_checkin_
+		,null AS Attendance_check_out_
+		,null AS Attendance_Break_in_
+		,null AS Attendance_Break_out_
+		,'Not Available On-Site' AS AttendanceStatus
+       , '' AS CheckoutStatus
+    FROM [ZKTeco].[dbo].absent_data hr
+	left join att_employee_zone ez on hr.employee_id=ez.employee_id
+	left join att_zone azn on ez.zone_id=azn.zone_code
+)x
+left join
+(
+SELECT 
+		distinct vw.employee_id
+		,[Requester]
+		,vw.employee_name
+		,employee_dept
+		,employee_position
+		,Location
+		,cast(StartDate as date)  StartDate
+		,cast(EndDate as date) EndDate
+		,[Status]
+		,'' AS Attendance_checkin_
+		,'' AS Attendance_check_out_
+		,'' AS Attendance_Break_in_
+		,'' AS Attendance_Break_out_
+		,'' AS AttendanceStatus
+		, '' AS CheckoutStatus
+		,[LeaveType] as leaveStatus
+    
+  FROM [LeaveApp].[dbo].[LRLA2025] la
+  left join [ZKTeco].[dbo].[vw_checkin_checkout] vw on vw.employee_email  = la.Requester
+  where Status != 'Declined' 
+  )z
+on x.employee_email=z.Requester and x.punch_date between cast(z.StartDate as date) and cast(z.EndDate as date)  and x.Attendance_Location_ = z.Location
+GO</code></pre>
+              </div>
+            </details>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -143,65 +392,34 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 
     <!-- Key Features -->
     <section class="mb-12 fade-in">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Key Features & Dashboard Breakdown</h2>
-      
-      <div class="space-y-6">
-        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
-          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-3">DevOps Overview & Security Posture</h3>
-          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Tracks active vs. inactive IAM users, total running EC2 instances, and key distribution metrics. Maps S3 bucket capacities (Bucket Size Summary) and visualizes specific service usage across your infrastructure to spot unused or orphaned resources.
-          </p>
-        </div>
-
-        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
-          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-3">Cost & Log Intelligence</h3>
-          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Integrates AWS Billing API metrics with live CloudTrail events. Surfaces the most expensive infrastructure items alongside real-time user action logs, helping match spikes in costs with specific API events.
-          </p>
-        </div>
-
-        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
-          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-3">Resource Monitor & Performance Analytics</h3>
-          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Monitors EC2 compute health using historical CPU utilization graphs and localized line metrics. Tracks network activity (NetworkIn / NetworkOut) and provides an Instance Analysis broken down by state (Running/Stopped) and instance types.
-          </p>
-        </div>
-
-        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
-          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-3">GitHub Workflow Analytics</h3>
-          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Aggregates repository CI/CD metadata to measure delivery performance. Visualizes workflow attempt volumes, calculates failure/success ratios, and tracks developer-specific workflow metrics to isolate pipeline bottlenecks.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Technical Architecture -->
-    <section class="mb-12 fade-in">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Technical Architecture & Data Engineering</h2>
-      
+      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Key Features</h2>
       <div class="space-y-4">
         <div class="flex gap-4">
-          <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">1</div>
+          <div class="flex-shrink-0 w-2 bg-accent rounded-full"></div>
           <div>
-            <h3 class="font-bold text-zinc-900 dark:text-white mb-1">Data Orchestration (Python)</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Developed a modular script utilizing Python to programmatically extract metadata from two separate AWS accounts and target GitHub repositories.</p>
+            <h3 class="font-bold text-zinc-900 dark:text-white mb-1">Automated Daily Reporting</h3>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400">Scheduled SQL Agent jobs generate and email attendance reports without manual intervention.</p>
           </div>
         </div>
-
         <div class="flex gap-4">
-          <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">2</div>
+          <div class="flex-shrink-0 w-2 bg-accent rounded-full"></div>
           <div>
-            <h3 class="font-bold text-zinc-900 dark:text-white mb-1">Data Modeling (Power BI Desktop)</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Engineered a robust star-schema relational model mapping multiple operational fact tables (AWS Logs, AWS Billing, AWS Instance Metrics, AWS Buckets) back to core shared dimensions (Source Account, AWS Users, Measures).</p>
+            <h3 class="font-bold text-zinc-900 dark:text-white mb-1">Multi-Location Support</h3>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400">Consolidates biometric punch data from Rawalpindi and Lahore offices into unified views.</p>
           </div>
         </div>
-
         <div class="flex gap-4">
-          <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">3</div>
+          <div class="flex-shrink-0 w-2 bg-accent rounded-full"></div>
           <div>
-            <h3 class="font-bold text-zinc-900 dark:text-white mb-1">DAX & Advanced Analytics</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Formulated custom Data Analysis Expressions (DAX) to aggregate cloud spend, calculate rolling network bandwidth totals, and dynamic time-series performance metrics.</p>
+            <h3 class="font-bold text-zinc-900 dark:text-white mb-1">Leave Integration</h3>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400">Cross-references leave applications to distinguish approved absences from unexcused ones.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-2 bg-accent rounded-full"></div>
+          <div>
+            <h3 class="font-bold text-zinc-900 dark:text-white mb-1">Paginated Report Distribution</h3>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400">Power BI Report Builder delivers formatted PDFs via email to department heads and HR.</p>
           </div>
         </div>
       </div>
@@ -212,23 +430,22 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
       <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Tech Stack</h2>
       <div class="grid md:grid-cols-2 gap-6">
         <div>
-          <h3 class="font-bold text-zinc-900 dark:text-white mb-3">Data Extraction & Engineering</h3>
+          <h3 class="font-bold text-zinc-900 dark:text-white mb-3">Data & Automation</h3>
           <ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
             <li class="flex items-center gap-2">
               <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              Python
+              SQL Server & Stored Procedures
             </li>
             <li class="flex items-center gap-2">
               <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              Boto3 (AWS SDK)
+              Python (ETL scripting)
             </li>
             <li class="flex items-center gap-2">
               <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              GitHub REST API
+              SQL Server Agent
             </li>
           </ul>
         </div>
-
         <div>
           <h3 class="font-bold text-zinc-900 dark:text-white mb-3">Business Intelligence</h3>
           <ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
@@ -238,47 +455,11 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
             </li>
             <li class="flex items-center gap-2">
               <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              Power Query
+              Power BI Report Builder
             </li>
             <li class="flex items-center gap-2">
               <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
               DAX
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="font-bold text-zinc-900 dark:text-white mb-3">Cloud Infrastructure</h3>
-          <ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              AWS IAM
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              AWS EC2 & CloudWatch
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              AWS S3 & CloudTrail
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              AWS Billing API
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="font-bold text-zinc-900 dark:text-white mb-3">DevOps Systems</h3>
-          <ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              GitHub Actions
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              GitHub Workflows
             </li>
           </ul>
         </div>
@@ -291,16 +472,16 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
       <div class="bg-gradient-to-br from-accent/10 to-orange-50 dark:from-accent/5 dark:to-zinc-900 rounded-2xl p-8 border border-accent/20">
         <div class="grid md:grid-cols-3 gap-6">
           <div>
-            <h3 class="font-bold text-zinc-900 dark:text-white mb-2">Cost Optimization</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Provided clear visibility into cloud spend across disparate accounts, leading to faster detection of accidental resource provisioning.</p>
+            <h3 class="font-bold text-zinc-900 dark:text-white mb-2">Time Savings</h3>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400">Reduced HR manual reporting effort by ~80% through automated data consolidation and scheduled report delivery.</p>
           </div>
           <div>
-            <h3 class="font-bold text-zinc-900 dark:text-white mb-2">Security & Compliance</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Enabled instant auditing of stale, inactive IAM keys and untracked administrative activity.</p>
+            <h3 class="font-bold text-zinc-900 dark:text-white mb-2">Accuracy</h3>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400">Eliminated human error in attendance calculations with SQL-based automated logic for check-in, break, and checkout times.</p>
           </div>
           <div>
-            <h3 class="font-bold text-zinc-900 dark:text-white mb-2">Operational Efficiency</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Drastically reduced debugging times for engineering teams by centralizing cross-account AWS resource metrics and GitHub workflow statuses in one dashboard.</p>
+            <h3 class="font-bold text-zinc-900 dark:text-white mb-2">Visibility</h3>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400">Gave department heads real-time insight into team attendance patterns, late arrivals, and early departures.</p>
           </div>
         </div>
       </div>

@@ -1,12 +1,13 @@
-# Muhammad Hasaan - Portfolio
+# Muhammad Hasaan — Portfolio
 
 **Data Engineer & BI Developer**
 
-Modern, responsive portfolio showcasing my work in Power BI, Power Apps, ETL pipelines, and cloud infrastructure.
+Modern, responsive portfolio showcasing work in Power BI, Power Apps, ETL pipelines, and cloud infrastructure.
 
-## 🚀 Live Demo
+## 🚀 Live Site
 
-Visit: [Your GitHub Pages URL]
+<!-- PLACEHOLDER: Update with your GitHub Pages URL after deployment -->
+Visit: [https://hasaanali009.github.io/hasaan-portfolio/](https://hasaanali009.github.io/hasaan-portfolio/)
 
 ## 🛠️ Tech Stack
 
@@ -16,10 +17,12 @@ Visit: [Your GitHub Pages URL]
 
 ## 📂 Projects Featured
 
-- **Multipage Dashboard** - Power BI + Power Apps + ML chatbot integration
-- **Department KPI Dashboard** - Team/employee task tracking with sprint management
-- **Leave Request System** - Automated approval workflows with Power Apps
-- **DevOps Dashboard** - AWS metrics, GitHub logs, cost analysis
+- **AI-Powered Learning Analytics Platform** — Azure OpenAI + Power BI chatbot integration
+- **Department-Wise Analytics Dashboard** — Multi-source ETL with Jira, GitHub, Time Doctor & MongoDB
+- **Multi-Account AWS & GitHub DevOps Platform** — Cloud infrastructure monitoring
+- **Automated Attendance & Leave Reporting** — SQL automation + Power BI
+- **Enterprise Leave Management System** — Power Apps + 70% HR time reduction
+- **Employee Skills Proficiency Dashboard** — Workforce analytics across 50+ skills
 
 ## 🎨 Services
 
@@ -30,20 +33,13 @@ Visit: [Your GitHub Pages URL]
 
 ## 📧 Contact
 
-- **Email:** your.email@example.com
-- **LinkedIn:** [Your LinkedIn]
-- **GitHub:** [Your GitHub]
+- **Email:** hasaanali009@gmail.com
+- **LinkedIn:** [linkedin.com/in/hasaan-ali](https://www.linkedin.com/in/hasaan-ali/)
+- **GitHub:** [github.com/hasaanali009](https://github.com/hasaanali009)
 
 ## 🏗️ Local Development
 
 Simply open `index.html` in your browser. No build process needed!
-
-## 📝 Customization
-
-1. Update personal info in the Hero section
-2. Add your project details and images
-3. Update contact links in the Contact section
-4. Customize colors in the Tailwind config (currently orange accent)
 
 ## 📄 License
 

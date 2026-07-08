@@ -41,10 +41,13 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 /* Scroll reveal animations */
 .fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
-.fade-in-left{opacity:0;transform:translateX(-30px);transition:opacity 0.6s ease,transform 0.6s ease}
-.fade-in-left.visible{opacity:1;transform:translateX(0)}
-.fade-in-right{opacity:0;transform:translateX(30px);transition:opacity 0.6s ease,transform 0.6s ease}
-.fade-in-right.visible{opacity:1;transform:translateX(0)}
+
+/* Collapsible sections */
+.collapsible-content{max-height:0;overflow:hidden;transition:max-height 0.4s ease-out}
+.collapsible-content.open{max-height:2000px}
+.collapsible-btn{cursor:pointer;user-select:none}
+.collapsible-btn svg{transition:transform 0.3s ease}
+.collapsible-btn.active svg{transform:rotate(180deg)}
 
 [x-cloak]{display:none!important}
 </style>
@@ -80,22 +83,23 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
         Back to Projects
       </a>
-      <h1 class="font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white mb-6">AI-Powered Learning Analytics Platform with Chatbot Integration</h1>
+      <h1 class="font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white mb-6">AI-Powered Learning Analytics Platform</h1>
+      <!-- PLACEHOLDER: Add project date range -->
+      <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-4"><!-- e.g., Jan 2025 – Mar 2025 -->Built at Consultancy Outfit</p>
       <div class="flex flex-wrap gap-2 mb-6">
         <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1.5 rounded-full">Azure OpenAI</span>
         <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1.5 rounded-full">Python</span>
         <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1.5 rounded-full">Power BI</span>
         <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1.5 rounded-full">Power Apps</span>
-        <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1.5 rounded-full">Power Automate</span>
         <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1.5 rounded-full">Vector Embeddings</span>
       </div>
     </div>
 
-    <!-- Executive Summary -->
+    <!-- Business Impact — Front-loaded -->
     <section class="mb-12 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/10 rounded-2xl p-8 border border-purple-200 dark:border-purple-800 fade-in">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-4">Executive Summary</h2>
-      <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed text-lg font-medium mb-6">
-        Built an enterprise-grade AI chatbot integrated into Power BI that enables natural language querying of a Learning Management System containing 40+ interrelated tables. Combined dual-AI architecture (SQL-based + vector embeddings) with Azure OpenAI to deliver intelligent, context-aware course recommendations.
+      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-4">Business Impact</h2>
+      <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed mb-6">
+        Built an enterprise-grade AI chatbot integrated into Power BI that enables natural language querying of a Learning Management System. Users can ask questions about courses, get personalized recommendations, and access complex data insights without writing SQL or navigating multiple report pages.
       </p>
       <div class="grid md:grid-cols-3 gap-4">
         <div class="bg-white dark:bg-zinc-900 rounded-xl p-4 border border-purple-100 dark:border-purple-800">
@@ -122,195 +126,24 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
       <p class="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 italic">Watch the AI chatbot in action - natural language queries powered by Azure OpenAI</p>
     </section>
 
-    <!-- Project Overview -->
+    <!-- Dashboard Preview -->
     <section class="mb-12 fade-in">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Project Overview</h2>
-      <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
-        For this complex enterprise project, I architected and developed a multi-layered analytics platform that combines traditional business intelligence with cutting-edge AI capabilities. The system processes data from a Learning Management System containing 40+ interconnected tables and makes it accessible through both interactive dashboards and natural language conversations.
-      </p>
-      <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-        The chatbot serves as an intelligent assistant embedded directly in Power BI, allowing users to ask questions about courses, get personalized recommendations, and access complex data insights without writing SQL or navigating multiple report pages.
-      </p>
-    </section>
-
-    <!-- Live Dashboard -->
-    <section class="mb-12 fade-in">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Interactive Dashboard</h2>
-      <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
-        Explore the live Power BI dashboard below. Navigate through different pages to see course analytics, student performance metrics, and enrollment trends.
-      </p>
-      <div class="relative rounded-2xl overflow-hidden border-2 border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 shadow-2xl" style="padding-top: 56.25%;">
-        <iframe class="absolute inset-0 w-full h-full" src="https://app.powerbi.com/view?r=eyJrIjoiNzYzYjY3NTUtNDlmZC00ZjJjLThlNWMtM2Q3OGY3M2I3OTQzIiwidCI6ImYxZjQwYzEwLTExNDgtNDA1ZC05ZjVjLTExODg3MDYwM2FmYSJ9" frameborder="0" allowFullScreen="true"></iframe>
+      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Dashboard Preview</h2>
+      <div class="rounded-2xl overflow-hidden border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl">
+        <img src="images/lars-chatbot/thumbnail.png" alt="LARS Learning Analytics Dashboard Preview" class="w-full h-auto">
       </div>
-      <p class="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 italic">Fully interactive Power BI dashboard - try exploring the data!</p>
-      <div class="mt-4 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg">
-        <p class="text-sm text-zinc-700 dark:text-zinc-300"><strong>NOTE:</strong> The Embedded Dashboard does not have the Chatbot Integrated in it.</p>
+      <div class="mt-6 text-center">
+        <a href="index.html#contact" class="inline-flex items-center gap-2 bg-accent text-white font-medium px-6 py-3 rounded-full hover:bg-accent-light transition-colors">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          Contact for Live Demo
+        </a>
+        <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-2">Interactive Power BI dashboard with chatbot integration available upon request</p>
       </div>
     </section>
 
-    <!-- Technical Architecture -->
+    <!-- Key Capabilities -->
     <section class="mb-12 fade-in">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Technical Architecture</h2>
-      
-      <div class="space-y-8">
-        <div>
-          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-4 flex items-center gap-2">
-            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">1</span>
-            Data Analysis & Modeling
-          </h3>
-          <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
-            <ul class="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                <span><strong>Analyzed 40+ interrelated tables</strong> from Learning Management System database to identify key entities and relationships</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                <span><strong>Engineered Galaxy schema model</strong> optimized for both analytical queries and chatbot performance</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                <span><strong>Denormalized critical data</strong> into single table for AI model processing while maintaining normalized structure for reporting</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div>
-          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-4 flex items-center gap-2">
-            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">2</span>
-            Dual-Model AI Architecture
-          </h3>
-          <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
-            <div class="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 class="font-bold text-zinc-900 dark:text-white mb-2">SQL-Based Model</h4>
-                <ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-                  <li>• Natural language to SQL query translation</li>
-                  <li>• Handles structured data queries</li>
-                  <li>• Returns precise, fact-based answers</li>
-                  <li>• Optimized for numeric/statistical queries</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-bold text-zinc-900 dark:text-white mb-2">Vector Embedding Model</h4>
-                <ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-                  <li>• Semantic search capabilities</li>
-                  <li>• Understands context and intent</li>
-                  <li>• Finds conceptually similar content</li>
-                  <li>• Handles ambiguous/exploratory queries</li>
-                </ul>
-              </div>
-            </div>
-            <div class="mt-6 p-4 bg-white dark:bg-zinc-800 rounded-lg border border-zinc-200 dark:border-zinc-700">
-              <p class="text-sm text-zinc-600 dark:text-zinc-400"><strong class="text-accent">Innovation:</strong> Both models process queries in parallel, results are intelligently merged and summarized by Azure OpenAI to provide the most comprehensive answer.</p>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-4 flex items-center gap-2">
-            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">3</span>
-            ChatGPT-like Interface in Power Apps
-          </h3>
-          <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
-            <ul class="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                <span><strong>Designed custom chat interface</strong> that replicates ChatGPT UX with message bubbles, streaming responses, and typing indicators</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                <span><strong>Implemented session-based chat history</strong> allowing users to revisit and continue previous conversations</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                <span><strong>Built Power Automate flows</strong> for API orchestration, response handling, and data persistence</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                <span><strong>Overcame Power Apps limitations</strong> through creative workarounds for features not natively supported</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div>
-          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-4 flex items-center gap-2">
-            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">4</span>
-            Power BI Integration
-          </h3>
-          <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
-            <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-4">
-              Seamlessly embedded the chatbot interface directly inside the Power BI dashboard, creating a truly interactive analytics and AI solution where users can:
-            </p>
-            <ul class="grid md:grid-cols-2 gap-3 text-sm text-zinc-600 dark:text-zinc-400">
-              <li class="flex items-center gap-2">
-                <span class="w-2 h-2 bg-accent rounded-full"></span>
-                Ask questions about courses while viewing dashboards
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-2 h-2 bg-accent rounded-full"></span>
-                Get personalized course recommendations
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-2 h-2 bg-accent rounded-full"></span>
-                Query historical enrollment data conversationally
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-2 h-2 bg-accent rounded-full"></span>
-                Discover content based on interests and history
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Data Architecture -->
-    <section class="mb-12 fade-in">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Galaxy Schema Data Model</h2>
-      <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
-        The platform is built on a sophisticated galaxy schema integrating 40+ tables from the Learning Management System. This architecture supports both complex analytical queries and real-time AI processing.
-      </p>
-      
-      <div class="rounded-2xl overflow-hidden border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl mb-6">
-        <img src="images/lars-chatbot/data-model.png" alt="LARS Learning Analytics Data Model - Galaxy Schema" class="w-full h-auto">
-      </div>
-      
-      <div class="bg-purple-50 dark:bg-purple-900/20 rounded-xl p-6 border border-purple-200 dark:border-purple-800">
-        <h3 class="font-bold text-zinc-900 dark:text-white mb-2 flex items-center gap-2">
-          <svg class="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-          Galaxy Schema Highlights
-        </h3>
-        <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-2">
-          <li class="flex items-start gap-2">
-            <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-            <span>40+ interrelated tables from LMS consolidated into optimized analytical structure</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-            <span>Dual-purpose design: normalized for reporting, denormalized for AI model training</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-            <span>Multiple fact tables for courses, enrollments, and student interactions</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-            <span>Vector embedding tables for semantic search and recommendation engine</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-            <span>Optimized for both Azure OpenAI SQL generation and semantic similarity queries</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Key Features -->
-    <section class="mb-12 fade-in">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Chatbot Capabilities</h2>
+      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Key Capabilities</h2>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/10 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
           <h3 class="font-bold text-zinc-900 dark:text-white mb-3">Intelligent Course Discovery</h3>
@@ -331,58 +164,115 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
       </div>
     </section>
 
-    <!-- Tech Stack -->
-    <section class="mb-12 fade-in">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Technology Stack</h2>
-      <div class="grid md:grid-cols-3 gap-4">
-        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-4 border border-zinc-100 dark:border-zinc-800">
-          <h3 class="font-bold text-sm text-zinc-900 dark:text-white mb-2">AI & ML</h3>
-          <ul class="text-xs text-zinc-600 dark:text-zinc-400 space-y-1">
-            <li>• Azure OpenAI GPT-4</li>
-            <li>• Vector Embeddings</li>
-            <li>• Natural Language Processing</li>
+    <!-- Technical Deep Dive — Collapsible -->
+    <section class="mb-12 fade-in" x-data="{ open: false }">
+      <button @click="open = !open" class="collapsible-btn w-full flex items-center justify-between bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-colors" :class="{ 'active': open }">
+        <div class="flex items-center gap-3">
+          <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-accent/10 text-accent rounded-xl">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          </span>
+          <div class="text-left">
+            <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white">Technical Deep Dive</h2>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400">Architecture, data model, and implementation details</p>
+          </div>
+        </div>
+        <svg class="w-5 h-5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      
+      <div x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="mt-4 space-y-8">
+        
+        <!-- Data Architecture -->
+        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-200 dark:border-zinc-800">
+          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-4">Data Architecture</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+            Analyzed 40+ interrelated tables from the Learning Management System database to identify key entities and relationships. Engineered a galaxy schema model optimized for both analytical queries and chatbot performance.
+          </p>
+          <div class="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-700 mb-4">
+            <img src="images/lars-chatbot/data-model.png" alt="Galaxy Schema Data Model" class="w-full h-auto">
+          </div>
+          <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-2">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Dual-purpose design: normalized for reporting, denormalized for AI model training</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Vector embedding tables for semantic search and recommendation engine</span>
+            </li>
           </ul>
         </div>
-        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-4 border border-zinc-100 dark:border-zinc-800">
-          <h3 class="font-bold text-sm text-zinc-900 dark:text-white mb-2">Backend</h3>
-          <ul class="text-xs text-zinc-600 dark:text-zinc-400 space-y-1">
-            <li>• Python (API Development)</li>
-            <li>• SQL Server</li>
-            <li>• REST APIs</li>
+
+        <!-- Dual-Model AI -->
+        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-200 dark:border-zinc-800">
+          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-4">Dual-Model AI Architecture</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-white dark:bg-zinc-800 rounded-lg p-4 border border-zinc-200 dark:border-zinc-700">
+              <h4 class="font-bold text-zinc-900 dark:text-white mb-2 text-sm">SQL-Based Model</h4>
+              <ul class="text-xs text-zinc-600 dark:text-zinc-400 space-y-1">
+                <li>• Natural language to SQL query translation</li>
+                <li>• Handles structured data queries</li>
+                <li>• Returns precise, fact-based answers</li>
+              </ul>
+            </div>
+            <div class="bg-white dark:bg-zinc-800 rounded-lg p-4 border border-zinc-200 dark:border-zinc-700">
+              <h4 class="font-bold text-zinc-900 dark:text-white mb-2 text-sm">Vector Embedding Model</h4>
+              <ul class="text-xs text-zinc-600 dark:text-zinc-400 space-y-1">
+                <li>• Semantic search capabilities</li>
+                <li>• Understands context and intent</li>
+                <li>• Handles ambiguous/exploratory queries</li>
+              </ul>
+            </div>
+          </div>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 mt-4">
+            <strong class="text-accent">Innovation:</strong> Both models process queries in parallel, results are intelligently merged and summarized by Azure OpenAI to provide the most comprehensive answer.
+          </p>
+        </div>
+
+        <!-- Power Apps Integration -->
+        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-200 dark:border-zinc-800">
+          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-4">Power Apps Integration</h3>
+          <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-2">
+            <li>• Designed custom chat interface replicating ChatGPT UX with message bubbles and streaming responses</li>
+            <li>• Implemented session-based chat history allowing users to revisit previous conversations</li>
+            <li>• Built Power Automate flows for API orchestration and response handling</li>
+            <li>• Embedded chatbot directly inside Power BI dashboard for seamless analytics + AI experience</li>
           </ul>
         </div>
-        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-4 border border-zinc-100 dark:border-zinc-800">
-          <h3 class="font-bold text-sm text-zinc-900 dark:text-white mb-2">Frontend & Integration</h3>
-          <ul class="text-xs text-zinc-600 dark:text-zinc-400 space-y-1">
-            <li>• Power BI Desktop</li>
-            <li>• Power Apps</li>
-            <li>• Power Automate</li>
-          </ul>
+
+        <!-- Tech Stack -->
+        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-200 dark:border-zinc-800">
+          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-4">Technology Stack</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div>
+              <h4 class="font-bold text-sm text-zinc-900 dark:text-white mb-2">AI & ML</h4>
+              <ul class="text-xs text-zinc-600 dark:text-zinc-400 space-y-1">
+                <li>• Azure OpenAI GPT-4</li>
+                <li>• Vector Embeddings</li>
+                <li>• NLP</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold text-sm text-zinc-900 dark:text-white mb-2">Backend</h4>
+              <ul class="text-xs text-zinc-600 dark:text-zinc-400 space-y-1">
+                <li>• Python (API Development)</li>
+                <li>• SQL Server</li>
+                <li>• REST APIs</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold text-sm text-zinc-900 dark:text-white mb-2">Frontend</h4>
+              <ul class="text-xs text-zinc-600 dark:text-zinc-400 space-y-1">
+                <li>• Power BI Desktop</li>
+                <li>• Power Apps</li>
+                <li>• Power Automate</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Business Impact -->
-    <section class="mb-12 fade-in">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Business Impact & Innovation</h2>
-      <div class="bg-gradient-to-br from-accent/10 to-orange-50 dark:from-accent/5 dark:to-zinc-900 rounded-2xl p-8 border border-accent/20">
-        <div class="space-y-6">
-          <div>
-            <h3 class="font-bold text-lg text-zinc-900 dark:text-white mb-2">First-of-its-Kind Solution</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">This project represents a cutting-edge integration of Azure OpenAI within the Microsoft Power Platform ecosystem, showcasing advanced skills in AI model development, API orchestration, and enterprise application design.</p>
-          </div>
-          <div>
-            <h3 class="font-bold text-lg text-zinc-900 dark:text-white mb-2">User Experience Transformation</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Eliminated the learning curve for complex BI tools by allowing non-technical users to access insights through natural conversation, dramatically increasing dashboard adoption and data utilization.</p>
-          </div>
-          <div>
-            <h3 class="font-bold text-lg text-zinc-900 dark:text-white mb-2">Personalization at Scale</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Enabled individualized course recommendations based on user history and preferences without manual curation, improving learner engagement and course completion rates.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <!-- CTA -->
     <div class="text-center pt-8 border-t border-zinc-200 dark:border-zinc-800">
       <a href="index.html#contact" class="inline-flex items-center gap-2 bg-accent text-white font-medium px-8 py-3.5 rounded-full hover:bg-accent-light transition-colors">
         Impressed? Let's Build Something Together
@@ -419,22 +309,15 @@ function app() {
       }, { passive: true });
       
       // Scroll reveal animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-      
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
           }
         });
-      }, observerOptions);
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
       
-      document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => {
-        observer.observe(el);
-      });
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     }
   }
 }

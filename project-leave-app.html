@@ -83,6 +83,7 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
       </div>
     </div>
 
+    <!-- PLACEHOLDER: Add project date range (e.g., "Oct 2024 – Dec 2024") -->
     <section class="mb-12 fade-in bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/10 rounded-2xl p-8 border border-emerald-200 dark:border-emerald-800">
       <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-4">🎯 Impact at a Glance</h2>
       <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed text-lg font-medium mb-6">
@@ -123,10 +124,15 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
       <p class="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 italic">Watch the leave management app in action - from request to approval</p>
     </section>
 
-    <section class="mb-12 fade-in">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Key Features</h2>
+    <!-- Technical Deep Dive (Collapsible) -->
+    <section class="mb-12 fade-in" x-data="{ open: false }">
+      <button @click="open = !open" class="w-full flex items-center justify-between bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+        <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white">Technical Deep Dive</h2>
+        <svg x-show="!open" class="w-6 h-6 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        <svg x-show="open" class="w-6 h-6 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+      </button>
       
-      <div class="space-y-6">
+      <div x-show="open" x-collapse class="mt-4 space-y-6">
         <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
           <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-3 flex items-center gap-2">
             <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>

@@ -1,30 +1,14 @@
-<!DOCTYPE html>
-<html lang="en" x-data="app()" :class="{'dark':dark}" class="scroll-smooth">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Multi-Account AWS & GitHub DevOps Analytics Platform - Muhammad Hasaan">
-<title>DevOps Dashboard - Muhammad Hasaan</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-
-<script>
+<!DOCTYPE html><html lang="en" x-data="app()" :class="{'dark':dark}" class="scroll-smooth"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Multi-Account AWS & GitHub DevOps Analytics Platform - Muhammad Hasaan"><title>DevOps Dashboard - Muhammad Hasaan</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="dns-prefetch" href="https://cdn.tailwindcss.com"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"><link rel="stylesheet" href="dist/styles.css"><script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script><script>
 tailwind.config = {
-  darkMode: 'class',
-  theme: {
-    extend: {
-      fontFamily: { display: ['PT Sans','sans-serif'], body: ['DM Sans','sans-serif'] },
-      colors: { accent: '#FF6B2B', 'accent-light': '#FF8F5C' }
-    }
-  }
+darkMode: 'class',
+theme: {
+extend: {
+fontFamily: { display: ['PT Sans','sans-serif'], body: ['DM Sans','sans-serif'] },
+colors: { accent: '#FF6B2B', 'accent-light': '#FF8F5C' }
 }
-</script>
-
-<style>
+}
+}
+</script><style>
 *,*::before,*::after{box-sizing:border-box}
 html,body{font-family:'DM Sans',sans-serif}
 h1,h2,h3,h4,h5,h6{font-family:'PT Sans',sans-serif}
@@ -36,348 +20,87 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 ::-webkit-scrollbar-thumb{background:#FF6B2B;border-radius:99px}
 /* Reading progress bar */
 #progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#FF6B2B,#FF8F5C);z-index:100;transition:width 0.1s ease;width:0}
-
 /* Scroll reveal animations */
 .fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 [x-cloak]{display:none!important}
-</style>
-</head>
-
-<body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
-
-<div id="progress-bar"></div>
-
-
-<header class="fixed inset-x-0 top-0 z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5">
-  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="index.html" class="font-display font-bold text-xl tracking-tight">
-      <span class="text-zinc-900 dark:text-white">Muhammad</span><span class="text-accent"> Hasaan</span>
-    </a>
-    <div class="flex items-center gap-3">
-      <button @click="dark=!dark" class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
-        <svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-        <svg x-show="dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
-      </button>
-      <a href="index.html#contact" class="hidden md:inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-light transition-colors">
-        Back to Portfolio
-      </a>
-    </div>
-  </nav>
-</header>
-
-<main class="pt-24 pb-16">
-  <article class="max-w-4xl mx-auto px-6">
-    
-    <!-- Header -->
-    <div class="mb-12">
-      <a href="index.html" class="inline-flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors mb-6">
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-        Back to Projects
-      </a>
-      <h1 class="font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white mb-6">Multi-Account AWS & GitHub DevOps Analytics Platform</h1>
-      <div class="flex flex-wrap gap-2 mb-6">
-        <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1.5 rounded-full">AWS</span>
-        <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1.5 rounded-full">Python</span>
-        <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1.5 rounded-full">Boto3</span>
-        <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1.5 rounded-full">GitHub API</span>
-        <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1.5 rounded-full">Power BI</span>
-        <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1.5 rounded-full">CloudTrail</span>
-      </div>
-    </div>
-
-    <!-- PLACEHOLDER: Add project date range (e.g., "Mar 2024 – Aug 2024") -->
-    <!-- Project Overview -->
-    <section class="mb-12 fade-in">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-4">Project Overview</h2>
-      <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
-        This project delivers a comprehensive, unified data intelligence solution designed to monitor, audit, and optimize multi-account AWS environments and GitHub CI/CD workflows. By engineering a custom Python ETL pipeline, the platform extracts raw metadata across isolated environments and transforms it into an interactive Power BI suite.
-      </p>
-      <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-        This empowers DevOps leads and stakeholders to easily track cross-account resource consumption, manage CloudTrail logs, monitor security posture, and optimize workflow efficiency from a single pane of glass.
-      </p>
-    </section>
-
-    <!-- Results / Impact -->
-    <section class="mb-12 fade-in">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Results & Impact</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/10 rounded-xl p-6 border border-orange-200 dark:border-orange-800 text-center">
-          <div class="text-3xl font-bold text-accent mb-2"><!-- PLACEHOLDER: e.g. 30% --></div>
-          <p class="text-sm text-zinc-600 dark:text-zinc-400">Faster detection of unused cloud resources</p>
-        </div>
-        <div class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/10 rounded-xl p-6 border border-blue-200 dark:border-blue-800 text-center">
-          <div class="text-3xl font-bold text-blue-600 mb-2"><!-- PLACEHOLDER: e.g. 2 accounts --></div>
-          <p class="text-sm text-zinc-600 dark:text-zinc-400">AWS accounts unified into single view</p>
-        </div>
-        <div class="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/10 rounded-xl p-6 border border-green-200 dark:border-green-800 text-center">
-          <div class="text-3xl font-bold text-green-600 mb-2"><!-- PLACEHOLDER: e.g. Real-time --></div>
-          <p class="text-sm text-zinc-600 dark:text-zinc-400">Security audit visibility for IAM & CloudTrail</p>
-        </div>
-      </div>
-      <!-- PLACEHOLDER: Add specific quantified impact metrics here -->
-    </section>
-
-    <!-- Dashboard Demo Video -->
-    <section class="mb-12 fade-in">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">🎥 Dashboard Demo</h2>
-      <div class="relative rounded-2xl overflow-hidden border-2 border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 shadow-2xl" style="padding-top: 56.25%;">
-        <iframe src="https://drive.google.com/file/d/1cFpb2eDBA8_fNh2viE7knwaPCe5C1eUf/preview" class="absolute inset-0 w-full h-full" frameborder="0" allow="autoplay" allowfullscreen></iframe>
-      </div>
-      <p class="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 italic">Watch the DevOps platform in action - AWS & GitHub monitoring unified</p>
-    </section>
-
-    <!-- Technical Deep Dive (Collapsible) -->
-    <section class="mb-12 fade-in" x-data="{ open: false }">
-      <button @click="open = !open" class="w-full flex items-center justify-between bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
-        <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white">Technical Deep Dive</h2>
-        <svg x-show="!open" class="w-6 h-6 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-        <svg x-show="open" class="w-6 h-6 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
-      </button>
-      
-      <div x-show="open" x-collapse class="mt-4 space-y-6">
-        <!-- Data Architecture -->
-        <div>
-          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-4">📊 Data Architecture</h3>
-          <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
-            The platform is built on a star-schema data model integrating AWS multi-account data and GitHub CI/CD metrics into a unified analytical layer.
-          </p>
-          
-          <div class="rounded-2xl overflow-hidden border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl mb-6">
-            <img src="images/devops-dashboard/data-model.png" alt="DevOps Dashboard Data Model" class="w-full h-auto">
-          </div>
-          
-          <div class="bg-indigo-50 dark:bg-indigo-900/20 rounded-xl p-6 border border-indigo-200 dark:border-indigo-800">
-            <h4 class="font-bold text-zinc-900 dark:text-white mb-2 flex items-center gap-2">
-              <svg class="w-5 h-5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-              Data Model Highlights
-            </h4>
-            <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-2">
-              <li class="flex items-start gap-2">
-                <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                <span>Star-schema design with separate fact tables for AWS services and GitHub workflows</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                <span>Multi-account AWS data consolidated through Python ETL with Boto3</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                <span>CloudTrail logs, billing data, and GitHub API integrated into shared dimension tables</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                <span>Custom DAX measures for cost optimization and CI/CD performance tracking</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Key Features -->
-        <div>
-          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-4">Key Features & Dashboard Breakdown</h3>
-          <div class="space-y-4">
-            <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
-              <h4 class="font-bold text-zinc-900 dark:text-white mb-2">DevOps Overview & Security Posture</h4>
-              <p class="text-sm text-zinc-600 dark:text-zinc-400">Tracks active vs. inactive IAM users, total running EC2 instances, and key distribution metrics. Maps S3 bucket capacities and visualizes specific service usage across your infrastructure to spot unused or orphaned resources.</p>
-            </div>
-            <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
-              <h4 class="font-bold text-zinc-900 dark:text-white mb-2">Cost & Log Intelligence</h4>
-              <p class="text-sm text-zinc-600 dark:text-zinc-400">Integrates AWS Billing API metrics with live CloudTrail events. Surfaces the most expensive infrastructure items alongside real-time user action logs, helping match spikes in costs with specific API events.</p>
-            </div>
-            <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
-              <h4 class="font-bold text-zinc-900 dark:text-white mb-2">Resource Monitor & Performance Analytics</h4>
-              <p class="text-sm text-zinc-600 dark:text-zinc-400">Monitors EC2 compute health using historical CPU utilization graphs and localized line metrics. Tracks network activity (NetworkIn / NetworkOut) and provides an Instance Analysis broken down by state (Running/Stopped) and instance types.</p>
-            </div>
-            <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
-              <h4 class="font-bold text-zinc-900 dark:text-white mb-2">GitHub Workflow Analytics</h4>
-              <p class="text-sm text-zinc-600 dark:text-zinc-400">Aggregates repository CI/CD metadata to measure delivery performance. Visualizes workflow attempt volumes, calculates failure/success ratios, and tracks developer-specific workflow metrics to isolate pipeline bottlenecks.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Technical Architecture -->
-        <div>
-          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-4">Technical Architecture & Data Engineering</h3>
-          <div class="space-y-4">
-            <div class="flex gap-4">
-              <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">1</div>
-              <div>
-                <h4 class="font-bold text-zinc-900 dark:text-white mb-1">Data Orchestration (Python)</h4>
-                <p class="text-sm text-zinc-600 dark:text-zinc-400">Developed a modular script utilizing Python to programmatically extract metadata from two separate AWS accounts and target GitHub repositories.</p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">2</div>
-              <div>
-                <h4 class="font-bold text-zinc-900 dark:text-white mb-1">Data Modeling (Power BI Desktop)</h4>
-                <p class="text-sm text-zinc-600 dark:text-zinc-400">Engineered a robust star-schema relational model mapping multiple operational fact tables back to core shared dimensions.</p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">3</div>
-              <div>
-                <h4 class="font-bold text-zinc-900 dark:text-white mb-1">DAX & Advanced Analytics</h4>
-                <p class="text-sm text-zinc-600 dark:text-zinc-400">Formulated custom Data Analysis Expressions (DAX) to aggregate cloud spend, calculate rolling network bandwidth totals, and dynamic time-series performance metrics.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tech Stack -->
-        <div>
-          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-4">Tech Stack</h3>
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <h4 class="font-bold text-zinc-900 dark:text-white mb-3">Data Extraction & Engineering</h4>
-              <ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  Python
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  Boto3 (AWS SDK)
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  GitHub REST API
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-bold text-zinc-900 dark:text-white mb-3">Business Intelligence</h4>
-              <ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  Power BI Desktop
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  Power Query
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  DAX
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-bold text-zinc-900 dark:text-white mb-3">Cloud Infrastructure</h4>
-              <ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  AWS IAM
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  AWS EC2 & CloudWatch
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  AWS S3 & CloudTrail
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  AWS Billing API
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-bold text-zinc-900 dark:text-white mb-3">DevOps Systems</h4>
-              <ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  GitHub Actions
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                  GitHub Workflows
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Business Impact -->
-    <section class="mb-12 fade-in">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Business Impact</h2>
-      <div class="bg-gradient-to-br from-accent/10 to-orange-50 dark:from-accent/5 dark:to-zinc-900 rounded-2xl p-8 border border-accent/20">
-        <div class="grid md:grid-cols-3 gap-6">
-          <div>
-            <h3 class="font-bold text-zinc-900 dark:text-white mb-2">Cost Optimization</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Provided clear visibility into cloud spend across disparate accounts, leading to faster detection of accidental resource provisioning.</p>
-          </div>
-          <div>
-            <h3 class="font-bold text-zinc-900 dark:text-white mb-2">Security & Compliance</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Enabled instant auditing of stale, inactive IAM keys and untracked administrative activity.</p>
-          </div>
-          <div>
-            <h3 class="font-bold text-zinc-900 dark:text-white mb-2">Operational Efficiency</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Drastically reduced debugging times for engineering teams by centralizing cross-account AWS resource metrics and GitHub workflow statuses in one dashboard.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <div class="text-center pt-8 border-t border-zinc-200 dark:border-zinc-800">
-      <a href="index.html#contact" class="inline-flex items-center gap-2 bg-accent text-white font-medium px-8 py-3.5 rounded-full hover:bg-accent-light transition-colors">
-        Interested in this project? Get in Touch
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
-    </div>
-
-  </article>
-</main>
-
-<footer class="border-t border-zinc-100 dark:border-zinc-900 mt-16">
-  <div class="max-w-6xl mx-auto px-6 py-8 text-center">
-    <p class="text-sm text-zinc-400">© <span id="yr"></span> Muhammad Hasaan. All rights reserved.</p>
-  </div>
-</footer>
-
-<script>
+</style></head><body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased"><div id="progress-bar"></div><header class="fixed inset-x-0 top-0 z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5"><nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between"><a href="index.html" class="font-display font-bold text-xl tracking-tight"><span class="text-zinc-900 dark:text-white">Muhammad</span><span class="text-accent"> Hasaan</span></a><div class="flex items-center gap-3"><button @click="dark=!dark" class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"><svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg x-show="dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg></button><a href="index.html#contact" class="hidden md:inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-light transition-colors">
+Back to Portfolio
+</a></div></nav></header><main class="pt-24 pb-16"><article class="max-w-4xl mx-auto px-6"><div class="mb-12"><a href="index.html" class="inline-flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors mb-6"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+Back to Projects
+</a><h1 class="font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white mb-6">Multi-Account AWS & GitHub DevOps Analytics Platform</h1><div class="flex flex-wrap gap-2 mb-6"><span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1.5 rounded-full">AWS</span><span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1.5 rounded-full">Python</span><span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1.5 rounded-full">Boto3</span><span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1.5 rounded-full">GitHub API</span><span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1.5 rounded-full">Power BI</span><span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1.5 rounded-full">CloudTrail</span><span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1.5 rounded-full">DAX</span><span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1.5 rounded-full">EC2</span></div><p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+A unified analytics platform that consolidates multi-account AWS infrastructure data and GitHub CI/CD metrics into a single Power BI dashboard — giving DevOps teams one place to monitor costs, security, and pipeline health.
+</p></div><section class="mb-12 fade-in"><h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-4">Problem & Solution</h2><p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+Managing cloud infrastructure across multiple AWS accounts while tracking CI/CD health in GitHub creates a visibility nightmare. DevOps teams waste hours switching between consoles, chasing cost anomalies, and hunting down stale security credentials.
+</p><p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+I built a unified analytics platform that pulls data from multiple AWS accounts and GitHub repositories into a single Power BI dashboard. The result: one pane of glass for cross-account resource monitoring, cost governance, security auditing, and pipeline performance tracking.
+</p></section><section class="mb-12 fade-in"><h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-4">My Role</h2><p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+I designed and built this platform end-to-end — from the Python data extraction layer handling cross-account AWS authentication and GitHub API pagination, to the Power BI data model and dashboard design. I owned every pipeline, measure, and visualization.
+</p><p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+The challenge went beyond connecting to APIs — it was building a system that gracefully handles IAM role switching, rate limiting, and schema differences between AWS services, then presenting that complexity as clean, actionable visuals.
+</p></section><section class="mb-12 fade-in"><h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Impact</h2><div class="grid md:grid-cols-3 gap-6"><div class="bg-gradient-to-br from-accent/10 to-orange-50 dark:from-accent/5 dark:to-zinc-900 rounded-2xl p-6 border border-accent/20"><h3 class="font-bold text-zinc-900 dark:text-white mb-2">Cost Optimization</h3><p class="text-sm text-zinc-600 dark:text-zinc-400">Unified cloud spend visibility across multiple AWS accounts, surfacing cost anomalies and idle resources before they became budget issues.</p></div><div class="bg-gradient-to-br from-accent/10 to-orange-50 dark:from-accent/5 dark:to-zinc-900 rounded-2xl p-6 border border-accent/20"><h3 class="font-bold text-zinc-900 dark:text-white mb-2">Security & Compliance</h3><p class="text-sm text-zinc-600 dark:text-zinc-400">Automated detection of stale IAM keys and untracked administrative activity, turning reactive security audits into proactive governance.</p></div><div class="bg-gradient-to-br from-accent/10 to-orange-50 dark:from-accent/5 dark:to-zinc-900 rounded-2xl p-6 border border-accent/20"><h3 class="font-bold text-zinc-900 dark:text-white mb-2">Operational Efficiency</h3><p class="text-sm text-zinc-600 dark:text-zinc-400">Eliminated context-switching between AWS consoles and GitHub by centralizing cross-account resource metrics and CI/CD pipeline health in one actionable view.</p></div></div></section><section class="mb-12 fade-in"><h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Live Dashboard Demo</h2><div class="relative rounded-2xl overflow-hidden border-2 border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 shadow-2xl" style="padding-top: 56.25%;"><iframe src="https://drive.google.com/file/d/1cFpb2eDBA8_fNh2viE7knwaPCe5C1eUf/preview" class="absolute inset-0 w-full h-full" frameborder="0" allow="autoplay" allowfullscreen></iframe></div><p class="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 italic">Watch the DevOps platform in action — AWS & GitHub monitoring unified</p></section><section class="mb-12 fade-in"><h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Key Metrics</h2><div class="grid grid-cols-2 md:grid-cols-4 gap-4"><div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-5 text-center border border-zinc-100 dark:border-zinc-800"><div class="text-3xl font-bold text-accent mb-1">5+</div><div class="text-sm text-zinc-600 dark:text-zinc-400">AWS Accounts Integrated</div></div><div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-5 text-center border border-zinc-100 dark:border-zinc-800"><div class="text-3xl font-bold text-accent mb-1">20+</div><div class="text-sm text-zinc-600 dark:text-zinc-400">GitHub Repositories Monitored</div></div><div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-5 text-center border border-zinc-100 dark:border-zinc-800"><div class="text-3xl font-bold text-accent mb-1">&lt;5 min</div><div class="text-sm text-zinc-600 dark:text-zinc-400">Data Refresh Interval</div></div><div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-5 text-center border border-zinc-100 dark:border-zinc-800"><div class="text-3xl font-bold text-accent mb-1">100%</div><div class="text-sm text-zinc-600 dark:text-zinc-400">Automated Data Pipeline</div></div></div></section><section class="mb-12 fade-in" x-data="{ open: false }"><button @click="open = !open" class="w-full flex items-center justify-between bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors"><h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white">Technical Deep Dive</h2><svg x-show="!open" class="w-6 h-6 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg><svg x-show="open" class="w-6 h-6 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg></button><div x-show="open" x-collapse class="mt-4 space-y-6"><div><h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-4">Data Architecture</h3><p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
+The platform is built on a star-schema data model integrating AWS multi-account data and GitHub CI/CD metrics into a unified analytical layer.
+</p><div class="rounded-2xl overflow-hidden border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl mb-6"><img src="images/devops-dashboard/data-model.png" alt="Star Schema for AWS multi-account and GitHub CI/CD data integration" class="w-full h-auto"></div><div class="bg-indigo-50 dark:bg-indigo-900/20 rounded-xl p-6 border border-indigo-200 dark:border-indigo-800"><h4 class="font-bold text-zinc-900 dark:text-white mb-2 flex items-center gap-2"><svg class="w-5 h-5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+Data Model Highlights
+</h4><ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-2"><li class="flex items-start gap-2"><svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>Star-schema design with separate fact tables for AWS services and GitHub workflows</span></li><li class="flex items-start gap-2"><svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>Multi-account AWS data consolidated through Python ETL with Boto3</span></li><li class="flex items-start gap-2"><svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>CloudTrail logs, billing data, and GitHub API integrated into shared dimension tables</span></li><li class="flex items-start gap-2"><svg class="w-4 h-4 text-accent mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>Custom DAX measures for cost optimization and CI/CD performance tracking</span></li></ul></div></div><div><h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-4">What It Does</h3><div class="space-y-4"><div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800"><h4 class="font-bold text-zinc-900 dark:text-white mb-2">DevOps Overview & Security Posture</h4><p class="text-sm text-zinc-600 dark:text-zinc-400">Tracks active vs. inactive IAM users, total running EC2 instances, and key distribution metrics. Maps S3 bucket capacities and visualizes specific service usage across your infrastructure to spot unused or orphaned resources.</p></div><div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800"><h4 class="font-bold text-zinc-900 dark:text-white mb-2">Cost & Log Intelligence</h4><p class="text-sm text-zinc-600 dark:text-zinc-400">Correlates AWS billing data with CloudTrail logs to surface spending anomalies and trace them back to specific API events and resource changes.</p></div><div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800"><h4 class="font-bold text-zinc-900 dark:text-white mb-2">Resource Monitor & Performance Analytics</h4><p class="text-sm text-zinc-600 dark:text-zinc-400">Tracks EC2 health through CPU utilization trends, network throughput patterns, and instance state analysis — flagging underutilized resources and performance bottlenecks before they affect operations.</p></div><div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800"><h4 class="font-bold text-zinc-900 dark:text-white mb-2">GitHub Workflow Analytics</h4><p class="text-sm text-zinc-600 dark:text-zinc-400">Measures CI/CD delivery performance across repositories, visualizing workflow success rates, failure patterns, and developer-specific bottlenecks to streamline deployment pipelines.</p></div></div></div><div><h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-4">Technical Architecture & Data Engineering</h3><div class="space-y-4"><div class="flex gap-4"><div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">1</div><div><h4 class="font-bold text-zinc-900 dark:text-white mb-1">Data Orchestration (Python)</h4><p class="text-sm text-zinc-600 dark:text-zinc-400">Built a modular Python extraction layer that pulls metadata from multiple AWS accounts and GitHub repositories via authenticated APIs, handling pagination, rate limits, and cross-account IAM boundaries.</p></div></div><div class="flex gap-4"><div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">2</div><div><h4 class="font-bold text-zinc-900 dark:text-white mb-1">Data Modeling (Power BI Desktop)</h4><p class="text-sm text-zinc-600 dark:text-zinc-400">Designed a star-schema model that maps operational fact tables across AWS and GitHub to shared dimensions, enabling cross-source analysis without performance degradation.</p></div></div><div class="flex gap-4"><div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">3</div><div><h4 class="font-bold text-zinc-900 dark:text-white mb-1">DAX & Advanced Analytics</h4><p class="text-sm text-zinc-600 dark:text-zinc-400">Wrote custom DAX measures for rolling cost aggregation, network bandwidth trends, and time-series performance metrics that update dynamically as new data flows in.</p></div></div></div></div><div><h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-4">Tech Stack</h3><div class="grid md:grid-cols-2 gap-6"><div><h4 class="font-bold text-zinc-900 dark:text-white mb-3">Data Extraction & Engineering</h4><ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400"><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+Python
+</li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+Boto3 (AWS SDK)
+</li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+GitHub REST API
+</li></ul></div><div><h4 class="font-bold text-zinc-900 dark:text-white mb-3">Business Intelligence</h4><ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400"><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+Power BI Desktop
+</li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+Power Query
+</li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+DAX
+</li></ul></div><div><h4 class="font-bold text-zinc-900 dark:text-white mb-3">Cloud Infrastructure</h4><ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400"><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+AWS IAM
+</li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+AWS EC2 & CloudWatch
+</li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+AWS S3 & CloudTrail
+</li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+AWS Billing API
+</li></ul></div><div><h4 class="font-bold text-zinc-900 dark:text-white mb-3">DevOps Systems</h4><ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400"><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+GitHub Actions
+</li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+GitHub Workflows
+</li></ul></div></div></div></div></section><div class="text-center pt-8 border-t border-zinc-200 dark:border-zinc-800"><a href="index.html#contact" class="inline-flex items-center gap-2 bg-accent text-white font-medium px-8 py-3.5 rounded-full hover:bg-accent-light transition-colors">
+Let's Talk About Your Project
+<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a></div></article></main><footer class="border-t border-zinc-100 dark:border-zinc-900 mt-16"><div class="max-w-6xl mx-auto px-6 py-8 text-center"><p class="text-sm text-zinc-400">© <span id="yr"></span> Muhammad Hasaan. All rights reserved.</p></div></footer><script>
 function app() {
-  return {
-    dark: false,
-    init() {
-      this.dark = localStorage.getItem('theme') === 'dark' ||
-        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      this.$watch('dark', v => localStorage.setItem('theme', v ? 'dark' : 'light'));
-      document.getElementById('yr').textContent = new Date().getFullYear();      
-      // Reading progress bar
-      const progressBar = document.getElementById('progress-bar');
-      window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (scrollTop / docHeight) * 100;
-        progressBar.style.width = progress + '%';
-      }, { passive: true });
-      
-      // Scroll reveal animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, observerOptions);
-      
-      document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
-      });
-    }
-  }
+return {
+dark: false,
+init() {
+this.dark = localStorage.getItem('theme') === 'dark' ||
+(!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+this.$watch('dark', v => localStorage.setItem('theme', v ? 'dark' : 'light'));
+document.getElementById('yr').textContent = new Date().getFullYear();
+// Reading progress bar
+const progressBar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+const scrollTop = window.scrollY;
+const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+const progress = (scrollTop / docHeight) * 100;
+progressBar.style.width = progress + '%';
+}, { passive: true });
+// Scroll reveal animations
+const observerOptions = {
+threshold: 0.1,
+rootMargin: '0px 0px -50px 0px'
+};
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
 }
-</script>
-
-</body>
-</html>
+});
+}, observerOptions);
+document.querySelectorAll('.fade-in').forEach(el => {
+observer.observe(el);
+});
+}
+}
+}
+</script></body></html>

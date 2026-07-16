@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+@keyframes gradientShift {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+@keyframes floatOrbs {
+  0%, 100% { transform: translate(0, 0) scale(1) }
+  33% { transform: translate(30px, -30px) scale(1.1) }
+  66% { transform: translate(-20px, 20px) scale(0.9) }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px }
+::-webkit-scrollbar-track { background: transparent }
+::-webkit-scrollbar-thumb { background: #FF6B2B; border-radius: 99px }
+
+/* Reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+.d1 { transition-delay: .08s }
+.d2 { transition-delay: .16s }
+.d3 { transition-delay: .24s }
+.d4 { transition-delay: .32s }
+.d5 { transition-delay: .4s }
+.d6 { transition-delay: .48s }
+
+/* Card hover */
+.card-h {
+  transition: transform .28s cubic-bezier(.4,0,.2,1), border-color .18s;
+}
+.card-h:hover {
+  transform: translateY(-4px);
+}
+
+/* Skill tag */
+.stag {
+  transition: border-color .18s;
+}
+
+/* Nav underline */
+.nl {
+  position: relative;
+}
+.nl::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: currentColor;
+  transition: width .22s cubic-bezier(.4,0,.2,1);
+}
+.nl:hover::after,
+.nl.on::after {
+  width: 100%;
+}
+.nl.on {
+  font-weight: 500;
+}
+
+/* Shimmer button */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: rgba(255,255,255,.18);
+  transform: skewX(-20deg);
+  transition: left .4s cubic-bezier(.4,0,.2,1);
+}
+.shimmer:hover::after {
+  left: 160%;
+}
+
+/* Photo frames */
+.pf {
+  overflow: hidden;
+  background: #d4d4d8;
+}
+.pf img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Fade in for project pages */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Collapsible sections */
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+.collapsible-content.open {
+  max-height: 2000px;
+}
+.collapsible-btn {
+  cursor: pointer;
+  user-select: none;
+}
+.collapsible-btn svg {
+  transition: transform 0.3s ease;
+}
+.collapsible-btn.active svg {
+  transform: rotate(180deg);
+}
+
+[x-cloak] {
+  display: none !important;
+}

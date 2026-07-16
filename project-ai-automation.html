@@ -1,30 +1,14 @@
-<!DOCTYPE html>
-<html lang="en" x-data="app()" :class="{'dark':dark}" class="scroll-smooth">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Multi-Account AWS & GitHub DevOps Analytics Platform - Muhammad Hasaan">
-<title>AI-Powered Workflow Automation - Muhammad Hasaan</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-
-<script>
+<!DOCTYPE html><html lang="en" x-data="app()" :class="{'dark':dark}" class="scroll-smooth"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Multi-Account AWS & GitHub DevOps Analytics Platform - Muhammad Hasaan"><title>AI-Powered Workflow Automation - Muhammad Hasaan</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="dns-prefetch" href="https://cdn.tailwindcss.com"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"><link rel="stylesheet" href="dist/styles.css"><script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script><script>
 tailwind.config = {
-  darkMode: 'class',
-  theme: {
-    extend: {
-      fontFamily: { display: ['PT Sans','sans-serif'], body: ['DM Sans','sans-serif'] },
-      colors: { accent: '#FF6B2B', 'accent-light': '#FF8F5C' }
-    }
-  }
+darkMode: 'class',
+theme: {
+extend: {
+fontFamily: { display: ['PT Sans','sans-serif'], body: ['DM Sans','sans-serif'] },
+colors: { accent: '#FF6B2B', 'accent-light': '#FF8F5C' }
 }
-</script>
-
-<style>
+}
+}
+</script><style>
 *,*::before,*::after{box-sizing:border-box}
 html,body{font-family:'DM Sans',sans-serif}
 h1,h2,h3,h4,h5,h6{font-family:'PT Sans',sans-serif}
@@ -35,252 +19,60 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:#FF6B2B;border-radius:99px}
 [x-cloak]{display:none!important}
-</style>
-</head>
-
-<body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
-
-<header class="fixed inset-x-0 top-0 z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5">
-  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="index.html" class="font-display font-bold text-xl tracking-tight">
-      <span class="text-zinc-900 dark:text-white">Muhammad</span><span class="text-accent"> Hasaan</span>
-    </a>
-    <div class="flex items-center gap-3">
-      <button @click="dark=!dark" class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
-        <svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-        <svg x-show="dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
-      </button>
-      <a href="index.html#contact" class="hidden md:inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-light transition-colors">
-        Back to Portfolio
-      </a>
-    </div>
-  </nav>
-</header>
-
-<main class="pt-24 pb-16">
-  <article class="max-w-4xl mx-auto px-6">
-    
-    <!-- Header -->
-    <div class="mb-12">
-      <a href="index.html" class="inline-flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors mb-6">
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-        Back to Projects
-      </a>
-      <h1 class="font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white mb-6">AI-Powered Workflow Automation Platform</h1>
-      <div class="flex flex-wrap gap-2 mb-6">
-        <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1.5 rounded-full">Power Apps</span>
-        <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1.5 rounded-full">Power Automate</span>
-        <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1.5 rounded-full">n8n</span>
-        <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1.5 rounded-full">AI Integration</span>
-        <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1.5 rounded-full">Workflows</span>
-      </div>
-    </div>
-
-    <section class="mb-12">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-4">Project Overview</h2>
-      <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
-        Designed and implemented custom business applications with AI-driven automation workflows using Power Apps, Power Automate, and n8n. Streamlined critical business processes across HR, recruitment, payroll, and employee engagement.
-      </p>
-      <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-        Built intelligent workflows that reduce manual intervention by 70%, improve approval cycle times, and provide real-time notifications and tracking for employee requests and administrative processes.
-      </p>
-    </section>
-
-    <!-- Key Features -->
-    <section class="mb-12">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Key Features & Dashboard Breakdown</h2>
-      
-      <div class="space-y-6">
-        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
-          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-3">DevOps Overview & Security Posture</h3>
-          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Tracks active vs. inactive IAM users, total running EC2 instances, and key distribution metrics. Maps S3 bucket capacities (Bucket Size Summary) and visualizes specific service usage across your infrastructure to spot unused or orphaned resources.
-          </p>
-        </div>
-
-        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
-          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-3">Cost & Log Intelligence</h3>
-          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Integrates AWS Billing API metrics with live CloudTrail events. Surfaces the most expensive infrastructure items alongside real-time user action logs, helping match spikes in costs with specific API events.
-          </p>
-        </div>
-
-        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
-          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-3">Resource Monitor & Performance Analytics</h3>
-          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Monitors EC2 compute health using historical CPU utilization graphs and localized line metrics. Tracks network activity (NetworkIn / NetworkOut) and provides an Instance Analysis broken down by state (Running/Stopped) and instance types.
-          </p>
-        </div>
-
-        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800">
-          <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-3">GitHub Workflow Analytics</h3>
-          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Aggregates repository CI/CD metadata to measure delivery performance. Visualizes workflow attempt volumes, calculates failure/success ratios, and tracks developer-specific workflow metrics to isolate pipeline bottlenecks.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Technical Architecture -->
-    <section class="mb-12">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Technical Architecture & Data Engineering</h2>
-      
-      <div class="space-y-4">
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">1</div>
-          <div>
-            <h3 class="font-bold text-zinc-900 dark:text-white mb-1">Data Orchestration (Python)</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Developed a modular script utilizing Python to programmatically extract metadata from two separate AWS accounts and target GitHub repositories.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">2</div>
-          <div>
-            <h3 class="font-bold text-zinc-900 dark:text-white mb-1">Data Modeling (Power BI Desktop)</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Engineered a robust star-schema relational model mapping multiple operational fact tables (AWS Logs, AWS Billing, AWS Instance Metrics, AWS Buckets) back to core shared dimensions (Source Account, AWS Users, Measures).</p>
-          </div>
-        </div>
-
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">3</div>
-          <div>
-            <h3 class="font-bold text-zinc-900 dark:text-white mb-1">DAX & Advanced Analytics</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Formulated custom Data Analysis Expressions (DAX) to aggregate cloud spend, calculate rolling network bandwidth totals, and dynamic time-series performance metrics.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tech Stack -->
-    <section class="mb-12">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Tech Stack</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <h3 class="font-bold text-zinc-900 dark:text-white mb-3">Data Extraction & Engineering</h3>
-          <ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              Python
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              Boto3 (AWS SDK)
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              GitHub REST API
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="font-bold text-zinc-900 dark:text-white mb-3">Business Intelligence</h3>
-          <ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              Power BI Desktop
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              Power Query
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              DAX
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="font-bold text-zinc-900 dark:text-white mb-3">Cloud Infrastructure</h3>
-          <ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              AWS IAM
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              AWS EC2 & CloudWatch
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              AWS S3 & CloudTrail
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              AWS Billing API
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="font-bold text-zinc-900 dark:text-white mb-3">DevOps Systems</h3>
-          <ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              GitHub Actions
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              GitHub Workflows
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Business Impact -->
-    <section class="mb-12">
-      <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Business Impact</h2>
-      <div class="bg-gradient-to-br from-accent/10 to-orange-50 dark:from-accent/5 dark:to-zinc-900 rounded-2xl p-8 border border-accent/20">
-        <div class="grid md:grid-cols-3 gap-6">
-          <div>
-            <h3 class="font-bold text-zinc-900 dark:text-white mb-2">Cost Optimization</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Provided clear visibility into cloud spend across disparate accounts, leading to faster detection of accidental resource provisioning.</p>
-          </div>
-          <div>
-            <h3 class="font-bold text-zinc-900 dark:text-white mb-2">Security & Compliance</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Enabled instant auditing of stale, inactive IAM keys and untracked administrative activity.</p>
-          </div>
-          <div>
-            <h3 class="font-bold text-zinc-900 dark:text-white mb-2">Operational Efficiency</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Drastically reduced debugging times for engineering teams by centralizing cross-account AWS resource metrics and GitHub workflow statuses in one dashboard.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <div class="text-center pt-8 border-t border-zinc-200 dark:border-zinc-800">
-      <a href="index.html#contact" class="inline-flex items-center gap-2 bg-accent text-white font-medium px-8 py-3.5 rounded-full hover:bg-accent-light transition-colors">
-        Interested in this project? Get in Touch
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
-    </div>
-
-  </article>
-</main>
-
-<footer class="border-t border-zinc-100 dark:border-zinc-900 mt-16">
-  <div class="max-w-6xl mx-auto px-6 py-8 text-center">
-    <p class="text-sm text-zinc-400">© <span id="yr"></span> Muhammad Hasaan. All rights reserved.</p>
-  </div>
-</footer>
-
-<script>
+</style></head><body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased"><header class="fixed inset-x-0 top-0 z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5"><nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between"><a href="index.html" class="font-display font-bold text-xl tracking-tight"><span class="text-zinc-900 dark:text-white">Muhammad</span><span class="text-accent"> Hasaan</span></a><div class="flex items-center gap-3"><button @click="dark=!dark" class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"><svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg x-show="dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg></button><a href="index.html#contact" class="hidden md:inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-light transition-colors">
+Back to Portfolio
+</a></div></nav></header><main class="pt-24 pb-16"><article class="max-w-4xl mx-auto px-6"><div class="mb-12"><a href="index.html" class="inline-flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors mb-6"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+Back to Projects
+</a><h1 class="font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white mb-6">AI-Powered Workflow Automation Platform</h1><div class="flex flex-wrap gap-2 mb-6"><span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1.5 rounded-full">Power Apps</span><span class="text-xs bg-orange-50 dark:bg-orange-500/10 text-orange-700 dark:text-orange-400 px-3 py-1.5 rounded-full">Power Automate</span><span class="text-xs bg-orange-50 dark:bg-orange-500/10 text-orange-700 dark:text-orange-400 px-3 py-1.5 rounded-full">n8n</span><span class="text-xs bg-orange-50 dark:bg-orange-500/10 text-orange-700 dark:text-orange-400 px-3 py-1.5 rounded-full">AI Integration</span><span class="text-xs bg-orange-50 dark:bg-orange-500/10 text-orange-700 dark:text-orange-400 px-3 py-1.5 rounded-full">Workflows</span></div></div><section class="mb-12 fade-in"><div class="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/10 rounded-2xl p-8 border border-orange-200 dark:border-orange-800"><h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-4">My Role</h2><p class="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+I designed and implemented the entire AI-powered workflow automation platform — from requirements gathering and process mapping to app development, workflow orchestration, and AI integration. I built custom Power Apps interfaces, designed complex automation flows in Power Automate and n8n, and integrated AI capabilities to reduce manual work across HR, recruitment, payroll, and employee engagement processes.
+</p></div></section><section class="mb-12"><h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-4">Project Overview</h2><p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+Designed and implemented custom business applications with AI-driven automation workflows using Power Apps, Power Automate, and n8n. Streamlined critical business processes across HR, recruitment, payroll, and employee engagement.
+</p><p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+Built intelligent workflows that reduce manual intervention by 70%, improve approval cycle times, and provide real-time notifications and tracking for employee requests and administrative processes.
+</p></section><section class="mb-12"><h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Key Features & Dashboard Breakdown</h2><div class="space-y-6"><div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800"><h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-3">DevOps Overview & Security Posture</h3><p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+Tracks active vs. inactive IAM users, total running EC2 instances, and key distribution metrics. Maps S3 bucket capacities (Bucket Size Summary) and visualizes specific service usage across your infrastructure to spot unused or orphaned resources.
+</p></div><div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800"><h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-3">Cost & Log Intelligence</h3><p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+Integrates AWS Billing API metrics with live CloudTrail events. Surfaces the most expensive infrastructure items alongside real-time user action logs, helping match spikes in costs with specific API events.
+</p></div><div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800"><h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-3">Resource Monitor & Performance Analytics</h3><p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+Monitors EC2 compute health using historical CPU utilization graphs and localized line metrics. Tracks network activity (NetworkIn / NetworkOut) and provides an Instance Analysis broken down by state (Running/Stopped) and instance types.
+</p></div><div class="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-100 dark:border-zinc-800"><h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-3">GitHub Workflow Analytics</h3><p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+Aggregates repository CI/CD metadata to measure delivery performance. Visualizes workflow attempt volumes, calculates failure/success ratios, and tracks developer-specific workflow metrics to isolate pipeline bottlenecks.
+</p></div></div></section><section class="mb-12"><h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Technical Architecture & Data Engineering</h2><div class="space-y-4"><div class="flex gap-4"><div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">1</div><div><h3 class="font-bold text-zinc-900 dark:text-white mb-1">Data Orchestration (Python)</h3><p class="text-sm text-zinc-600 dark:text-zinc-400">Developed a modular script utilizing Python to programmatically extract metadata from two separate AWS accounts and target GitHub repositories.</p></div></div><div class="flex gap-4"><div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">2</div><div><h3 class="font-bold text-zinc-900 dark:text-white mb-1">Data Modeling (Power BI Desktop)</h3><p class="text-sm text-zinc-600 dark:text-zinc-400">Engineered a robust star-schema relational model mapping multiple operational fact tables (AWS Logs, AWS Billing, AWS Instance Metrics, AWS Buckets) back to core shared dimensions (Source Account, AWS Users, Measures).</p></div></div><div class="flex gap-4"><div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-accent/10 text-accent rounded-lg font-bold">3</div><div><h3 class="font-bold text-zinc-900 dark:text-white mb-1">DAX & Advanced Analytics</h3><p class="text-sm text-zinc-600 dark:text-zinc-400">Formulated custom Data Analysis Expressions (DAX) to aggregate cloud spend, calculate rolling network bandwidth totals, and dynamic time-series performance metrics.</p></div></div></div></section><section class="mb-12"><h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Tech Stack</h2><div class="grid md:grid-cols-2 gap-6"><div><h3 class="font-bold text-zinc-900 dark:text-white mb-3">Data Extraction & Engineering</h3><ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400"><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+Python
+</li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+Boto3 (AWS SDK)
+</li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+GitHub REST API
+</li></ul></div><div><h3 class="font-bold text-zinc-900 dark:text-white mb-3">Business Intelligence</h3><ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400"><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+Power BI Desktop
+</li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+Power Query
+</li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+DAX
+</li></ul></div><div><h3 class="font-bold text-zinc-900 dark:text-white mb-3">Cloud Infrastructure</h3><ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400"><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+AWS IAM
+</li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+AWS EC2 & CloudWatch
+</li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+AWS S3 & CloudTrail
+</li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+AWS Billing API
+</li></ul></div><div><h3 class="font-bold text-zinc-900 dark:text-white mb-3">DevOps Systems</h3><ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400"><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+GitHub Actions
+</li><li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+GitHub Workflows
+</li></ul></div></div></section><section class="mb-12"><h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-6">Business Impact</h2><div class="bg-gradient-to-br from-accent/10 to-orange-50 dark:from-accent/5 dark:to-zinc-900 rounded-2xl p-8 border border-accent/20"><div class="grid md:grid-cols-3 gap-6"><div><h3 class="font-bold text-zinc-900 dark:text-white mb-2">Cost Optimization</h3><p class="text-sm text-zinc-600 dark:text-zinc-400">Provided clear visibility into cloud spend across disparate accounts, leading to faster detection of accidental resource provisioning.</p></div><div><h3 class="font-bold text-zinc-900 dark:text-white mb-2">Security & Compliance</h3><p class="text-sm text-zinc-600 dark:text-zinc-400">Enabled instant auditing of stale, inactive IAM keys and untracked administrative activity.</p></div><div><h3 class="font-bold text-zinc-900 dark:text-white mb-2">Operational Efficiency</h3><p class="text-sm text-zinc-600 dark:text-zinc-400">Drastically reduced debugging times for engineering teams by centralizing cross-account AWS resource metrics and GitHub workflow statuses in one dashboard.</p></div></div></div></section><div class="text-center pt-8 border-t border-zinc-200 dark:border-zinc-800"><a href="index.html#contact" class="inline-flex items-center gap-2 bg-accent text-white font-medium px-8 py-3.5 rounded-full hover:bg-accent-light transition-colors">
+Interested in this project? Get in Touch
+<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a></div></article></main><footer class="border-t border-zinc-100 dark:border-zinc-900 mt-16"><div class="max-w-6xl mx-auto px-6 py-8 text-center"><p class="text-sm text-zinc-400">© <span id="yr"></span> Muhammad Hasaan. All rights reserved.</p></div></footer><script>
 function app() {
-  return {
-    dark: false,
-    init() {
-      this.dark = localStorage.getItem('theme') === 'dark' ||
-        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      this.$watch('dark', v => localStorage.setItem('theme', v ? 'dark' : 'light'));
-      document.getElementById('yr').textContent = new Date().getFullYear();
-    }
-  }
+return {
+dark: false,
+init() {
+this.dark = localStorage.getItem('theme') === 'dark' ||
+(!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+this.$watch('dark', v => localStorage.setItem('theme', v ? 'dark' : 'light'));
+document.getElementById('yr').textContent = new Date().getFullYear();
 }
-</script>
-
-</body>
-</html>
+}
+}
+</script></body></html>

@@ -1,947 +1,679 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thumbnail Frame Variations - Preview</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<style>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Thumbnail Frame Variations - Preview</title><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script><style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: #fff;
-  overflow-x: hidden;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+color: #fff;
+overflow-x: hidden;
 }
-
 .header {
-  text-align: center;
-  padding: 40px 20px;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
+text-align: center;
+padding: 40px 20px;
+background: rgba(255,255,255,0.05);
+backdrop-filter: blur(10px);
 }
-
 .header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  background: linear-gradient(90deg, #FF6B2B, #FFB347);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+font-size: 2.5rem;
+margin-bottom: 10px;
+background: linear-gradient(90deg, #FF6B2B, #FFB347);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
 }
-
 .header p {
-  color: #aaa;
-  font-size: 1.1rem;
+color: #aaa;
+font-size: 1.1rem;
 }
-
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: 30px;
-  padding: 40px 20px;
-  max-width: 1800px;
-  margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+gap: 30px;
+padding: 40px 20px;
+max-width: 1800px;
+margin: 0 auto;
 }
-
 .variant {
-  background: rgba(255,255,255,0.05);
-  border-radius: 20px;
-  padding: 20px;
-  border: 2px solid rgba(255,107,43,0.3);
-  transition: all 0.3s;
+background: rgba(255,255,255,0.05);
+border-radius: 20px;
+padding: 20px;
+border: 2px solid rgba(255,107,43,0.3);
+transition: all 0.3s;
 }
-
 .variant:hover {
-  border-color: #FF6B2B;
-  transform: translateY(-5px);
-  box-shadow: 0 10px 40px rgba(255,107,43,0.3);
+border-color: #FF6B2B;
+transform: translateY(-5px);
+box-shadow: 0 10px 40px rgba(255,107,43,0.3);
 }
-
 .variant h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #FF6B2B;
+font-size: 1.5rem;
+margin-bottom: 10px;
+color: #FF6B2B;
 }
-
 .variant p {
-  color: #aaa;
-  font-size: 0.9rem;
-  margin-bottom: 15px;
-  line-height: 1.5;
+color: #aaa;
+font-size: 0.9rem;
+margin-bottom: 15px;
+line-height: 1.5;
 }
-
 .canvas-container {
-  width: 100%;
-  height: 400px;
-  background: #0a0a0a;
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
+width: 100%;
+height: 400px;
+background: #0a0a0a;
+border-radius: 12px;
+overflow: hidden;
+position: relative;
 }
-
 canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
+width: 100%;
+height: 100%;
+display: block;
 }
-
 .label {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: rgba(255,107,43,0.9);
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: bold;
+position: absolute;
+bottom: 10px;
+right: 10px;
+background: rgba(255,107,43,0.9);
+padding: 5px 15px;
+border-radius: 20px;
+font-size: 0.8rem;
+font-weight: bold;
 }
-
 .footer {
-  text-align: center;
-  padding: 40px 20px;
-  color: #888;
+text-align: center;
+padding: 40px 20px;
+color: #888;
 }
-
 .btn {
-  display: inline-block;
-  margin: 10px;
-  padding: 12px 30px;
-  background: #FF6B2B;
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: bold;
-  transition: all 0.3s;
+display: inline-block;
+margin: 10px;
+padding: 12px 30px;
+background: #FF6B2B;
+color: white;
+text-decoration: none;
+border-radius: 30px;
+font-weight: bold;
+transition: all 0.3s;
 }
-
 .btn:hover {
-  background: #FF8F5C;
-  transform: scale(1.05);
+background: #FF8F5C;
+transform: scale(1.05);
 }
-</style>
-</head>
-<body>
-
-<div class="header">
-  <h1>🖼️ Thumbnail Frame Design Variations</h1>
-  <p>Different border and frame styles for your spiral project cards</p>
-</div>
-
-<div class="grid">
-
-  <!-- Variation 1: Current Design -->
-  <div class="variant">
-    <h2>1. Glowing Frame (Current)</h2>
-    <p>3D frame with emissive orange glow. Elegant and professional.</p>
-    <div class="canvas-container">
-      <canvas id="canvas1"></canvas>
-      <div class="label">Current</div>
-    </div>
-  </div>
-
-  <!-- Variation 2: Neon Glow -->
-  <div class="variant">
-    <h2>2. Neon Glow Border</h2>
-    <p>Thick glowing neon outline with intense emissive effect. Cyberpunk aesthetic.</p>
-    <div class="canvas-container">
-      <canvas id="canvas2"></canvas>
-      <div class="label">Neon</div>
-    </div>
-  </div>
-
-  <!-- Variation 3: Rounded Corners -->
-  <div class="variant">
-    <h2>3. Rounded Glass Cards</h2>
-    <p>Soft rounded corners with frosted glass effect. Modern and clean.</p>
-    <div class="canvas-container">
-      <canvas id="canvas3"></canvas>
-      <div class="label">Glass</div>
-    </div>
-  </div>
-
-  <!-- Variation 4: Double Border -->
-  <div class="variant">
-    <h2>4. Double Frame</h2>
-    <p>Inner and outer border with gap. Creates depth and dimension.</p>
-    <div class="canvas-container">
-      <canvas id="canvas4"></canvas>
-      <div class="label">Layered</div>
-    </div>
-  </div>
-
-  <!-- Variation 5: Gradient Border -->
-  <div class="variant">
-    <h2>5. Animated Gradient Border</h2>
-    <p>Border cycles through color gradients. Dynamic and eye-catching.</p>
-    <div class="canvas-container">
-      <canvas id="canvas5"></canvas>
-      <div class="label">Gradient</div>
-    </div>
-  </div>
-
-  <!-- Variation 6: Corner Accents -->
-  <div class="variant">
-    <h2>6. Corner Accent Brackets</h2>
-    <p>Minimalist corner brackets only. Tech/UI style design.</p>
-    <div class="canvas-container">
-      <canvas id="canvas6"></canvas>
-      <div class="label">Minimalist</div>
-    </div>
-  </div>
-
-  <!-- Variation 7: Holographic -->
-  <div class="variant">
-    <h2>7. Holographic Shimmer</h2>
-    <p>Iridescent border with rainbow shimmer effect. Futuristic look.</p>
-    <div class="canvas-container">
-      <canvas id="canvas7"></canvas>
-      <div class="label">Hologram</div>
-    </div>
-  </div>
-
-  <!-- Variation 8: 3D Extrusion -->
-  <div class="variant">
-    <h2>8. Deep 3D Frame</h2>
-    <p>Thick extruded frame with strong depth. Bold and substantial.</p>
-    <div class="canvas-container">
-      <canvas id="canvas8"></canvas>
-      <div class="label">3D Depth</div>
-    </div>
-  </div>
-
-  <!-- Variation 9: Floating Shadow -->
-  <div class="variant">
-    <h2>9. Floating Shadow Card</h2>
-    <p>No border, just shadow. Clean minimal look with depth.</p>
-    <div class="canvas-container">
-      <canvas id="canvas9"></canvas>
-      <div class="label">Shadow</div>
-    </div>
-  </div>
-
-  <!-- Variation 10: Tech Panel -->
-  <div class="variant">
-    <h2>10. Tech Panel Border</h2>
-    <p>Asymmetric tech details and notches. Sci-fi interface style.</p>
-    <div class="canvas-container">
-      <canvas id="canvas10"></canvas>
-      <div class="label">Sci-Fi</div>
-    </div>
-  </div>
-
-</div>
-
-<div class="footer">
-  <p style="font-size: 1.2rem; margin-bottom: 20px;">Which frame style looks best? 🎨</p>
-  <a href="spiral-preview.html" class="btn">← Back to Spiral Variations</a>
-  <a href="index.html" class="btn">← Back to Portfolio</a>
-</div>
-
-<script>
+</style></head><body><div class="header"><h1>🖼️ Thumbnail Frame Design Variations</h1><p>Different border and frame styles for your spiral project cards</p></div><div class="grid"><div class="variant"><h2>1. Glowing Frame (Current)</h2><p>3D frame with emissive orange glow. Elegant and professional.</p><div class="canvas-container"><canvas id="canvas1"></canvas><div class="label">Current</div></div></div><div class="variant"><h2>2. Neon Glow Border</h2><p>Thick glowing neon outline with intense emissive effect. Cyberpunk aesthetic.</p><div class="canvas-container"><canvas id="canvas2"></canvas><div class="label">Neon</div></div></div><div class="variant"><h2>3. Rounded Glass Cards</h2><p>Soft rounded corners with frosted glass effect. Modern and clean.</p><div class="canvas-container"><canvas id="canvas3"></canvas><div class="label">Glass</div></div></div><div class="variant"><h2>4. Double Frame</h2><p>Inner and outer border with gap. Creates depth and dimension.</p><div class="canvas-container"><canvas id="canvas4"></canvas><div class="label">Layered</div></div></div><div class="variant"><h2>5. Animated Gradient Border</h2><p>Border cycles through color gradients. Dynamic and eye-catching.</p><div class="canvas-container"><canvas id="canvas5"></canvas><div class="label">Gradient</div></div></div><div class="variant"><h2>6. Corner Accent Brackets</h2><p>Minimalist corner brackets only. Tech/UI style design.</p><div class="canvas-container"><canvas id="canvas6"></canvas><div class="label">Minimalist</div></div></div><div class="variant"><h2>7. Holographic Shimmer</h2><p>Iridescent border with rainbow shimmer effect. Futuristic look.</p><div class="canvas-container"><canvas id="canvas7"></canvas><div class="label">Hologram</div></div></div><div class="variant"><h2>8. Deep 3D Frame</h2><p>Thick extruded frame with strong depth. Bold and substantial.</p><div class="canvas-container"><canvas id="canvas8"></canvas><div class="label">3D Depth</div></div></div><div class="variant"><h2>9. Floating Shadow Card</h2><p>No border, just shadow. Clean minimal look with depth.</p><div class="canvas-container"><canvas id="canvas9"></canvas><div class="label">Shadow</div></div></div><div class="variant"><h2>10. Tech Panel Border</h2><p>Asymmetric tech details and notches. Sci-fi interface style.</p><div class="canvas-container"><canvas id="canvas10"></canvas><div class="label">Sci-Fi</div></div></div></div><div class="footer"><p style="font-size: 1.2rem; margin-bottom: 20px;">Which frame style looks best? 🎨</p><a href="spiral-preview.html" class="btn">← Back to Spiral Variations</a><a href="index.html" class="btn">← Back to Portfolio</a></div><script>
 // Helper to create spiral layout
 function createSpiral(scene, createCardFn) {
-  const cards = [];
-  for (let i = 0; i < 6; i++) {
-    const card = createCardFn(i);
-    const angle = (i / 6) * Math.PI * 2;
-    card.position.x = Math.cos(angle) * 5;
-    card.position.z = Math.sin(angle) * 5;
-    card.position.y = i * 1.0 - 2.5;
-    card.lookAt(0, card.position.y, 0);
-    cards.push(card);
-    scene.add(card);
-  }
-  return cards;
+const cards = [];
+for (let i = 0; i < 6; i++) {
+const card = createCardFn(i);
+const angle = (i / 6) * Math.PI * 2;
+card.position.x = Math.cos(angle) * 5;
+card.position.z = Math.sin(angle) * 5;
+card.position.y = i * 1.0 - 2.5;
+card.lookAt(0, card.position.y, 0);
+cards.push(card);
+scene.add(card);
 }
-
+return cards;
+}
 // Helper for animation
 function animateSpiral(cards, rotation) {
-  cards.forEach((card, i) => {
-    const angle = (i / 6) * Math.PI * 2 + rotation;
-    card.position.x = Math.cos(angle) * 5;
-    card.position.z = Math.sin(angle) * 5;
-    card.lookAt(0, card.position.y, 0);
-  });
+cards.forEach((card, i) => {
+const angle = (i / 6) * Math.PI * 2 + rotation;
+card.position.x = Math.cos(angle) * 5;
+card.position.z = Math.sin(angle) * 5;
+card.lookAt(0, card.position.y, 0);
+});
 }
-
 // ===== VARIATION 1: Current Glowing Frame =====
 function initVariant1() {
-  const canvas = document.getElementById('canvas1');
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  
-  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
-  camera.position.set(0, 2, 12);
-  
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-  scene.add(ambientLight);
-  
-  const cards = createSpiral(scene, (i) => {
-    const group = new THREE.Group();
-    
-    // Main card
-    const card = new THREE.Mesh(
-      new THREE.BoxGeometry(3.2, 1.8, 0.1),
-      new THREE.MeshStandardMaterial({ color: 0x3b82f6, metalness: 0.2, roughness: 0.5 })
-    );
-    group.add(card);
-    
-    // Glowing borders
-    const borderMaterial = new THREE.MeshStandardMaterial({ 
-      color: 0xFF6B2B,
-      emissive: 0xFF6B2B,
-      emissiveIntensity: 0.5,
-      metalness: 0.8,
-      roughness: 0.2
-    });
-    
-    const borderThickness = 0.03;
-    const borders = [
-      new THREE.Mesh(new THREE.BoxGeometry(3.26, borderThickness, 0.02), borderMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(3.26, borderThickness, 0.02), borderMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(borderThickness, 1.8, 0.02), borderMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(borderThickness, 1.8, 0.02), borderMaterial)
-    ];
-    
-    borders[0].position.set(0, 0.915, 0.06);
-    borders[1].position.set(0, -0.915, 0.06);
-    borders[2].position.set(-1.615, 0, 0.06);
-    borders[3].position.set(1.615, 0, 0.06);
-    
-    borders.forEach(b => group.add(b));
-    
-    return group;
-  });
-  
-  let rotation = 0;
-  function animate() {
-    requestAnimationFrame(animate);
-    rotation -= 0.005;
-    animateSpiral(cards, rotation);
-    renderer.render(scene, camera);
-  }
-  animate();
+const canvas = document.getElementById('canvas1');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+camera.position.set(0, 2, 12);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+scene.add(ambientLight);
+const cards = createSpiral(scene, (i) => {
+const group = new THREE.Group();
+// Main card
+const card = new THREE.Mesh(
+new THREE.BoxGeometry(3.2, 1.8, 0.1),
+new THREE.MeshStandardMaterial({ color: 0x3b82f6, metalness: 0.2, roughness: 0.5 })
+);
+group.add(card);
+// Glowing borders
+const borderMaterial = new THREE.MeshStandardMaterial({
+color: 0xFF6B2B,
+emissive: 0xFF6B2B,
+emissiveIntensity: 0.5,
+metalness: 0.8,
+roughness: 0.2
+});
+const borderThickness = 0.03;
+const borders = [
+new THREE.Mesh(new THREE.BoxGeometry(3.26, borderThickness, 0.02), borderMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(3.26, borderThickness, 0.02), borderMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(borderThickness, 1.8, 0.02), borderMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(borderThickness, 1.8, 0.02), borderMaterial)
+];
+borders[0].position.set(0, 0.915, 0.06);
+borders[1].position.set(0, -0.915, 0.06);
+borders[2].position.set(-1.615, 0, 0.06);
+borders[3].position.set(1.615, 0, 0.06);
+borders.forEach(b => group.add(b));
+return group;
+});
+let rotation = 0;
+function animate() {
+requestAnimationFrame(animate);
+rotation -= 0.005;
+animateSpiral(cards, rotation);
+renderer.render(scene, camera);
 }
-
+animate();
+}
 // ===== VARIATION 2: Neon Glow =====
 function initVariant2() {
-  const canvas = document.getElementById('canvas2');
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  
-  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
-  camera.position.set(0, 2, 12);
-  
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-  scene.add(ambientLight);
-  
-  const cards = createSpiral(scene, (i) => {
-    const group = new THREE.Group();
-    
-    const card = new THREE.Mesh(
-      new THREE.BoxGeometry(3.2, 1.8, 0.1),
-      new THREE.MeshStandardMaterial({ color: 0x1a1a2e, metalness: 0.3, roughness: 0.6 })
-    );
-    group.add(card);
-    
-    // Thick neon outline
-    const neonMaterial = new THREE.MeshStandardMaterial({ 
-      color: 0xFF6B2B,
-      emissive: 0xFF6B2B,
-      emissiveIntensity: 1.5,
-      transparent: true,
-      opacity: 0.9
-    });
-    
-    const thickness = 0.08;
-    const borders = [
-      new THREE.Mesh(new THREE.BoxGeometry(3.36, thickness, 0.05), neonMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(3.36, thickness, 0.05), neonMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(thickness, 1.96, 0.05), neonMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(thickness, 1.96, 0.05), neonMaterial)
-    ];
-    
-    borders[0].position.set(0, 0.94, 0.08);
-    borders[1].position.set(0, -0.94, 0.08);
-    borders[2].position.set(-1.64, 0, 0.08);
-    borders[3].position.set(1.64, 0, 0.08);
-    
-    borders.forEach(b => group.add(b));
-    
-    return group;
-  });
-  
-  let rotation = 0;
-  function animate() {
-    requestAnimationFrame(animate);
-    rotation -= 0.005;
-    animateSpiral(cards, rotation);
-    renderer.render(scene, camera);
-  }
-  animate();
+const canvas = document.getElementById('canvas2');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+camera.position.set(0, 2, 12);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+scene.add(ambientLight);
+const cards = createSpiral(scene, (i) => {
+const group = new THREE.Group();
+const card = new THREE.Mesh(
+new THREE.BoxGeometry(3.2, 1.8, 0.1),
+new THREE.MeshStandardMaterial({ color: 0x1a1a2e, metalness: 0.3, roughness: 0.6 })
+);
+group.add(card);
+// Thick neon outline
+const neonMaterial = new THREE.MeshStandardMaterial({
+color: 0xFF6B2B,
+emissive: 0xFF6B2B,
+emissiveIntensity: 1.5,
+transparent: true,
+opacity: 0.9
+});
+const thickness = 0.08;
+const borders = [
+new THREE.Mesh(new THREE.BoxGeometry(3.36, thickness, 0.05), neonMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(3.36, thickness, 0.05), neonMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(thickness, 1.96, 0.05), neonMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(thickness, 1.96, 0.05), neonMaterial)
+];
+borders[0].position.set(0, 0.94, 0.08);
+borders[1].position.set(0, -0.94, 0.08);
+borders[2].position.set(-1.64, 0, 0.08);
+borders[3].position.set(1.64, 0, 0.08);
+borders.forEach(b => group.add(b));
+return group;
+});
+let rotation = 0;
+function animate() {
+requestAnimationFrame(animate);
+rotation -= 0.005;
+animateSpiral(cards, rotation);
+renderer.render(scene, camera);
 }
-
+animate();
+}
 // ===== VARIATION 3: Rounded Glass =====
 function initVariant3() {
-  const canvas = document.getElementById('canvas3');
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  
-  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
-  camera.position.set(0, 2, 12);
-  
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-  scene.add(ambientLight);
-  
-  const cards = createSpiral(scene, (i) => {
-    const group = new THREE.Group();
-    
-    // Rounded rectangle using multiple planes (approximation)
-    const card = new THREE.Mesh(
-      new THREE.BoxGeometry(3.2, 1.8, 0.15),
-      new THREE.MeshStandardMaterial({ 
-        color: 0x3b82f6,
-        metalness: 0.6,
-        roughness: 0.1,
-        transparent: true,
-        opacity: 0.9
-      })
-    );
-    group.add(card);
-    
-    // Thin frosted border
-    const borderMaterial = new THREE.MeshStandardMaterial({ 
-      color: 0xFFFFFF,
-      metalness: 0.9,
-      roughness: 0.1,
-      transparent: true,
-      opacity: 0.5
-    });
-    
-    const borderThickness = 0.02;
-    const borders = [
-      new THREE.Mesh(new THREE.BoxGeometry(3.24, borderThickness, 0.02), borderMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(3.24, borderThickness, 0.02), borderMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(borderThickness, 1.84, 0.02), borderMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(borderThickness, 1.84, 0.02), borderMaterial)
-    ];
-    
-    borders[0].position.set(0, 0.91, 0.09);
-    borders[1].position.set(0, -0.91, 0.09);
-    borders[2].position.set(-1.61, 0, 0.09);
-    borders[3].position.set(1.61, 0, 0.09);
-    
-    borders.forEach(b => group.add(b));
-    
-    return group;
-  });
-  
-  let rotation = 0;
-  function animate() {
-    requestAnimationFrame(animate);
-    rotation -= 0.005;
-    animateSpiral(cards, rotation);
-    renderer.render(scene, camera);
-  }
-  animate();
+const canvas = document.getElementById('canvas3');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+camera.position.set(0, 2, 12);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+scene.add(ambientLight);
+const cards = createSpiral(scene, (i) => {
+const group = new THREE.Group();
+// Rounded rectangle using multiple planes (approximation)
+const card = new THREE.Mesh(
+new THREE.BoxGeometry(3.2, 1.8, 0.15),
+new THREE.MeshStandardMaterial({
+color: 0x3b82f6,
+metalness: 0.6,
+roughness: 0.1,
+transparent: true,
+opacity: 0.9
+})
+);
+group.add(card);
+// Thin frosted border
+const borderMaterial = new THREE.MeshStandardMaterial({
+color: 0xFFFFFF,
+metalness: 0.9,
+roughness: 0.1,
+transparent: true,
+opacity: 0.5
+});
+const borderThickness = 0.02;
+const borders = [
+new THREE.Mesh(new THREE.BoxGeometry(3.24, borderThickness, 0.02), borderMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(3.24, borderThickness, 0.02), borderMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(borderThickness, 1.84, 0.02), borderMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(borderThickness, 1.84, 0.02), borderMaterial)
+];
+borders[0].position.set(0, 0.91, 0.09);
+borders[1].position.set(0, -0.91, 0.09);
+borders[2].position.set(-1.61, 0, 0.09);
+borders[3].position.set(1.61, 0, 0.09);
+borders.forEach(b => group.add(b));
+return group;
+});
+let rotation = 0;
+function animate() {
+requestAnimationFrame(animate);
+rotation -= 0.005;
+animateSpiral(cards, rotation);
+renderer.render(scene, camera);
 }
-
+animate();
+}
 // ===== VARIATION 4: Double Border =====
 function initVariant4() {
-  const canvas = document.getElementById('canvas4');
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  
-  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
-  camera.position.set(0, 2, 12);
-  
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-  scene.add(ambientLight);
-  
-  const cards = createSpiral(scene, (i) => {
-    const group = new THREE.Group();
-    
-    const card = new THREE.Mesh(
-      new THREE.BoxGeometry(3.2, 1.8, 0.1),
-      new THREE.MeshStandardMaterial({ color: 0x6366f1, metalness: 0.3, roughness: 0.5 })
-    );
-    group.add(card);
-    
-    // Inner border
-    const innerMaterial = new THREE.MeshStandardMaterial({ 
-      color: 0xFF6B2B,
-      emissive: 0xFF6B2B,
-      emissiveIntensity: 0.4
-    });
-    
-    const innerBorders = [
-      new THREE.Mesh(new THREE.BoxGeometry(3.1, 0.02, 0.02), innerMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(3.1, 0.02, 0.02), innerMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(0.02, 1.7, 0.02), innerMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(0.02, 1.7, 0.02), innerMaterial)
-    ];
-    
-    innerBorders[0].position.set(0, 0.84, 0.06);
-    innerBorders[1].position.set(0, -0.84, 0.06);
-    innerBorders[2].position.set(-1.54, 0, 0.06);
-    innerBorders[3].position.set(1.54, 0, 0.06);
-    
-    innerBorders.forEach(b => group.add(b));
-    
-    // Outer border
-    const outerMaterial = new THREE.MeshStandardMaterial({ 
-      color: 0xFFFFFF,
-      emissive: 0xFFFFFF,
-      emissiveIntensity: 0.2
-    });
-    
-    const outerBorders = [
-      new THREE.Mesh(new THREE.BoxGeometry(3.4, 0.02, 0.02), outerMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(3.4, 0.02, 0.02), outerMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(0.02, 2.0, 0.02), outerMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(0.02, 2.0, 0.02), outerMaterial)
-    ];
-    
-    outerBorders[0].position.set(0, 0.99, 0.06);
-    outerBorders[1].position.set(0, -0.99, 0.06);
-    outerBorders[2].position.set(-1.69, 0, 0.06);
-    outerBorders[3].position.set(1.69, 0, 0.06);
-    
-    outerBorders.forEach(b => group.add(b));
-    
-    return group;
-  });
-  
-  let rotation = 0;
-  function animate() {
-    requestAnimationFrame(animate);
-    rotation -= 0.005;
-    animateSpiral(cards, rotation);
-    renderer.render(scene, camera);
-  }
-  animate();
+const canvas = document.getElementById('canvas4');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+camera.position.set(0, 2, 12);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+scene.add(ambientLight);
+const cards = createSpiral(scene, (i) => {
+const group = new THREE.Group();
+const card = new THREE.Mesh(
+new THREE.BoxGeometry(3.2, 1.8, 0.1),
+new THREE.MeshStandardMaterial({ color: 0x6366f1, metalness: 0.3, roughness: 0.5 })
+);
+group.add(card);
+// Inner border
+const innerMaterial = new THREE.MeshStandardMaterial({
+color: 0xFF6B2B,
+emissive: 0xFF6B2B,
+emissiveIntensity: 0.4
+});
+const innerBorders = [
+new THREE.Mesh(new THREE.BoxGeometry(3.1, 0.02, 0.02), innerMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(3.1, 0.02, 0.02), innerMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(0.02, 1.7, 0.02), innerMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(0.02, 1.7, 0.02), innerMaterial)
+];
+innerBorders[0].position.set(0, 0.84, 0.06);
+innerBorders[1].position.set(0, -0.84, 0.06);
+innerBorders[2].position.set(-1.54, 0, 0.06);
+innerBorders[3].position.set(1.54, 0, 0.06);
+innerBorders.forEach(b => group.add(b));
+// Outer border
+const outerMaterial = new THREE.MeshStandardMaterial({
+color: 0xFFFFFF,
+emissive: 0xFFFFFF,
+emissiveIntensity: 0.2
+});
+const outerBorders = [
+new THREE.Mesh(new THREE.BoxGeometry(3.4, 0.02, 0.02), outerMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(3.4, 0.02, 0.02), outerMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(0.02, 2.0, 0.02), outerMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(0.02, 2.0, 0.02), outerMaterial)
+];
+outerBorders[0].position.set(0, 0.99, 0.06);
+outerBorders[1].position.set(0, -0.99, 0.06);
+outerBorders[2].position.set(-1.69, 0, 0.06);
+outerBorders[3].position.set(1.69, 0, 0.06);
+outerBorders.forEach(b => group.add(b));
+return group;
+});
+let rotation = 0;
+function animate() {
+requestAnimationFrame(animate);
+rotation -= 0.005;
+animateSpiral(cards, rotation);
+renderer.render(scene, camera);
 }
-
+animate();
+}
 // ===== VARIATION 5: Animated Gradient Border =====
 function initVariant5() {
-  const canvas = document.getElementById('canvas5');
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  
-  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
-  camera.position.set(0, 2, 12);
-  
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-  scene.add(ambientLight);
-  
-  const cards = createSpiral(scene, (i) => {
-    const group = new THREE.Group();
-    
-    const card = new THREE.Mesh(
-      new THREE.BoxGeometry(3.2, 1.8, 0.1),
-      new THREE.MeshStandardMaterial({ color: 0x1a1a2e, metalness: 0.4, roughness: 0.5 })
-    );
-    group.add(card);
-    
-    const borderMaterial = new THREE.MeshStandardMaterial({ 
-      color: 0xFF6B2B,
-      emissive: 0xFF6B2B,
-      emissiveIntensity: 0.8,
-      metalness: 0.6,
-      roughness: 0.3
-    });
-    
-    const thickness = 0.05;
-    const borders = [
-      new THREE.Mesh(new THREE.BoxGeometry(3.3, thickness, 0.03), borderMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(3.3, thickness, 0.03), borderMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(thickness, 1.9, 0.03), borderMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(thickness, 1.9, 0.03), borderMaterial)
-    ];
-    
-    borders[0].position.set(0, 0.925, 0.07);
-    borders[1].position.set(0, -0.925, 0.07);
-    borders[2].position.set(-1.625, 0, 0.07);
-    borders[3].position.set(1.625, 0, 0.07);
-    
-    borders.forEach(b => group.add(b));
-    
-    group.userData.borders = borders;
-    
-    return group;
-  });
-  
-  let rotation = 0;
-  let colorTime = 0;
-  function animate() {
-    requestAnimationFrame(animate);
-    rotation -= 0.005;
-    colorTime += 0.02;
-    
-    animateSpiral(cards, rotation);
-    
-    // Animate border colors
-    cards.forEach((group, i) => {
-      const hue = (colorTime + i * 0.5) % 1;
-      const color = new THREE.Color().setHSL(hue, 0.8, 0.5);
-      group.userData.borders.forEach(border => {
-        border.material.color = color;
-        border.material.emissive = color;
-      });
-    });
-    
-    renderer.render(scene, camera);
-  }
-  animate();
+const canvas = document.getElementById('canvas5');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+camera.position.set(0, 2, 12);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+scene.add(ambientLight);
+const cards = createSpiral(scene, (i) => {
+const group = new THREE.Group();
+const card = new THREE.Mesh(
+new THREE.BoxGeometry(3.2, 1.8, 0.1),
+new THREE.MeshStandardMaterial({ color: 0x1a1a2e, metalness: 0.4, roughness: 0.5 })
+);
+group.add(card);
+const borderMaterial = new THREE.MeshStandardMaterial({
+color: 0xFF6B2B,
+emissive: 0xFF6B2B,
+emissiveIntensity: 0.8,
+metalness: 0.6,
+roughness: 0.3
+});
+const thickness = 0.05;
+const borders = [
+new THREE.Mesh(new THREE.BoxGeometry(3.3, thickness, 0.03), borderMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(3.3, thickness, 0.03), borderMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(thickness, 1.9, 0.03), borderMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(thickness, 1.9, 0.03), borderMaterial)
+];
+borders[0].position.set(0, 0.925, 0.07);
+borders[1].position.set(0, -0.925, 0.07);
+borders[2].position.set(-1.625, 0, 0.07);
+borders[3].position.set(1.625, 0, 0.07);
+borders.forEach(b => group.add(b));
+group.userData.borders = borders;
+return group;
+});
+let rotation = 0;
+let colorTime = 0;
+function animate() {
+requestAnimationFrame(animate);
+rotation -= 0.005;
+colorTime += 0.02;
+animateSpiral(cards, rotation);
+// Animate border colors
+cards.forEach((group, i) => {
+const hue = (colorTime + i * 0.5) % 1;
+const color = new THREE.Color().setHSL(hue, 0.8, 0.5);
+group.userData.borders.forEach(border => {
+border.material.color = color;
+border.material.emissive = color;
+});
+});
+renderer.render(scene, camera);
 }
-
+animate();
+}
 // ===== VARIATION 6: Corner Brackets =====
 function initVariant6() {
-  const canvas = document.getElementById('canvas6');
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  
-  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
-  camera.position.set(0, 2, 12);
-  
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-  scene.add(ambientLight);
-  
-  const cards = createSpiral(scene, (i) => {
-    const group = new THREE.Group();
-    
-    const card = new THREE.Mesh(
-      new THREE.BoxGeometry(3.2, 1.8, 0.1),
-      new THREE.MeshStandardMaterial({ color: 0x3b82f6, metalness: 0.3, roughness: 0.5 })
-    );
-    group.add(card);
-    
-    // Corner brackets
-    const bracketMaterial = new THREE.MeshStandardMaterial({ 
-      color: 0xFF6B2B,
-      emissive: 0xFF6B2B,
-      emissiveIntensity: 0.7,
-      metalness: 0.8,
-      roughness: 0.2
-    });
-    
-    const bracketLength = 0.4;
-    const bracketThickness = 0.04;
-    
-    // Top-left
-    const tl1 = new THREE.Mesh(new THREE.BoxGeometry(bracketLength, bracketThickness, 0.02), bracketMaterial);
-    tl1.position.set(-1.4, 0.88, 0.06);
-    const tl2 = new THREE.Mesh(new THREE.BoxGeometry(bracketThickness, bracketLength, 0.02), bracketMaterial);
-    tl2.position.set(-1.58, 0.7, 0.06);
-    
-    // Top-right
-    const tr1 = new THREE.Mesh(new THREE.BoxGeometry(bracketLength, bracketThickness, 0.02), bracketMaterial);
-    tr1.position.set(1.4, 0.88, 0.06);
-    const tr2 = new THREE.Mesh(new THREE.BoxGeometry(bracketThickness, bracketLength, 0.02), bracketMaterial);
-    tr2.position.set(1.58, 0.7, 0.06);
-    
-    // Bottom-left
-    const bl1 = new THREE.Mesh(new THREE.BoxGeometry(bracketLength, bracketThickness, 0.02), bracketMaterial);
-    bl1.position.set(-1.4, -0.88, 0.06);
-    const bl2 = new THREE.Mesh(new THREE.BoxGeometry(bracketThickness, bracketLength, 0.02), bracketMaterial);
-    bl2.position.set(-1.58, -0.7, 0.06);
-    
-    // Bottom-right
-    const br1 = new THREE.Mesh(new THREE.BoxGeometry(bracketLength, bracketThickness, 0.02), bracketMaterial);
-    br1.position.set(1.4, -0.88, 0.06);
-    const br2 = new THREE.Mesh(new THREE.BoxGeometry(bracketThickness, bracketLength, 0.02), bracketMaterial);
-    br2.position.set(1.58, -0.7, 0.06);
-    
-    [tl1, tl2, tr1, tr2, bl1, bl2, br1, br2].forEach(b => group.add(b));
-    
-    return group;
-  });
-  
-  let rotation = 0;
-  function animate() {
-    requestAnimationFrame(animate);
-    rotation -= 0.005;
-    animateSpiral(cards, rotation);
-    renderer.render(scene, camera);
-  }
-  animate();
+const canvas = document.getElementById('canvas6');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+camera.position.set(0, 2, 12);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+scene.add(ambientLight);
+const cards = createSpiral(scene, (i) => {
+const group = new THREE.Group();
+const card = new THREE.Mesh(
+new THREE.BoxGeometry(3.2, 1.8, 0.1),
+new THREE.MeshStandardMaterial({ color: 0x3b82f6, metalness: 0.3, roughness: 0.5 })
+);
+group.add(card);
+// Corner brackets
+const bracketMaterial = new THREE.MeshStandardMaterial({
+color: 0xFF6B2B,
+emissive: 0xFF6B2B,
+emissiveIntensity: 0.7,
+metalness: 0.8,
+roughness: 0.2
+});
+const bracketLength = 0.4;
+const bracketThickness = 0.04;
+// Top-left
+const tl1 = new THREE.Mesh(new THREE.BoxGeometry(bracketLength, bracketThickness, 0.02), bracketMaterial);
+tl1.position.set(-1.4, 0.88, 0.06);
+const tl2 = new THREE.Mesh(new THREE.BoxGeometry(bracketThickness, bracketLength, 0.02), bracketMaterial);
+tl2.position.set(-1.58, 0.7, 0.06);
+// Top-right
+const tr1 = new THREE.Mesh(new THREE.BoxGeometry(bracketLength, bracketThickness, 0.02), bracketMaterial);
+tr1.position.set(1.4, 0.88, 0.06);
+const tr2 = new THREE.Mesh(new THREE.BoxGeometry(bracketThickness, bracketLength, 0.02), bracketMaterial);
+tr2.position.set(1.58, 0.7, 0.06);
+// Bottom-left
+const bl1 = new THREE.Mesh(new THREE.BoxGeometry(bracketLength, bracketThickness, 0.02), bracketMaterial);
+bl1.position.set(-1.4, -0.88, 0.06);
+const bl2 = new THREE.Mesh(new THREE.BoxGeometry(bracketThickness, bracketLength, 0.02), bracketMaterial);
+bl2.position.set(-1.58, -0.7, 0.06);
+// Bottom-right
+const br1 = new THREE.Mesh(new THREE.BoxGeometry(bracketLength, bracketThickness, 0.02), bracketMaterial);
+br1.position.set(1.4, -0.88, 0.06);
+const br2 = new THREE.Mesh(new THREE.BoxGeometry(bracketThickness, bracketLength, 0.02), bracketMaterial);
+br2.position.set(1.58, -0.7, 0.06);
+[tl1, tl2, tr1, tr2, bl1, bl2, br1, br2].forEach(b => group.add(b));
+return group;
+});
+let rotation = 0;
+function animate() {
+requestAnimationFrame(animate);
+rotation -= 0.005;
+animateSpiral(cards, rotation);
+renderer.render(scene, camera);
 }
-
+animate();
+}
 // ===== VARIATION 7: Holographic =====
 function initVariant7() {
-  const canvas = document.getElementById('canvas7');
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  
-  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
-  camera.position.set(0, 2, 12);
-  
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
-  scene.add(ambientLight);
-  
-  const cards = createSpiral(scene, (i) => {
-    const group = new THREE.Group();
-    
-    const card = new THREE.Mesh(
-      new THREE.BoxGeometry(3.2, 1.8, 0.1),
-      new THREE.MeshStandardMaterial({ color: 0x0a0a0a, metalness: 0.7, roughness: 0.3 })
-    );
-    group.add(card);
-    
-    const holographicMaterial = new THREE.MeshStandardMaterial({ 
-      color: 0xFFFFFF,
-      emissive: 0xFF6B2B,
-      emissiveIntensity: 0.5,
-      metalness: 1,
-      roughness: 0,
-      transparent: true,
-      opacity: 0.8
-    });
-    
-    const thickness = 0.04;
-    const borders = [
-      new THREE.Mesh(new THREE.BoxGeometry(3.28, thickness, 0.03), holographicMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(3.28, thickness, 0.03), holographicMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(thickness, 1.88, 0.03), holographicMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(thickness, 1.88, 0.03), holographicMaterial)
-    ];
-    
-    borders[0].position.set(0, 0.92, 0.07);
-    borders[1].position.set(0, -0.92, 0.07);
-    borders[2].position.set(-1.62, 0, 0.07);
-    borders[3].position.set(1.62, 0, 0.07);
-    
-    borders.forEach(b => group.add(b));
-    
-    group.userData.borders = borders;
-    
-    return group;
-  });
-  
-  let rotation = 0;
-  let shimmerTime = 0;
-  function animate() {
-    requestAnimationFrame(animate);
-    rotation -= 0.005;
-    shimmerTime += 0.05;
-    
-    animateSpiral(cards, rotation);
-    
-    // Holographic shimmer
-    cards.forEach((group, i) => {
-      const hue = (Math.sin(shimmerTime + i) * 0.5 + 0.5);
-      const color = new THREE.Color().setHSL(hue, 0.7, 0.6);
-      group.userData.borders.forEach(border => {
-        border.material.emissive = color;
-      });
-    });
-    
-    renderer.render(scene, camera);
-  }
-  animate();
+const canvas = document.getElementById('canvas7');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+camera.position.set(0, 2, 12);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+scene.add(ambientLight);
+const cards = createSpiral(scene, (i) => {
+const group = new THREE.Group();
+const card = new THREE.Mesh(
+new THREE.BoxGeometry(3.2, 1.8, 0.1),
+new THREE.MeshStandardMaterial({ color: 0x0a0a0a, metalness: 0.7, roughness: 0.3 })
+);
+group.add(card);
+const holographicMaterial = new THREE.MeshStandardMaterial({
+color: 0xFFFFFF,
+emissive: 0xFF6B2B,
+emissiveIntensity: 0.5,
+metalness: 1,
+roughness: 0,
+transparent: true,
+opacity: 0.8
+});
+const thickness = 0.04;
+const borders = [
+new THREE.Mesh(new THREE.BoxGeometry(3.28, thickness, 0.03), holographicMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(3.28, thickness, 0.03), holographicMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(thickness, 1.88, 0.03), holographicMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(thickness, 1.88, 0.03), holographicMaterial)
+];
+borders[0].position.set(0, 0.92, 0.07);
+borders[1].position.set(0, -0.92, 0.07);
+borders[2].position.set(-1.62, 0, 0.07);
+borders[3].position.set(1.62, 0, 0.07);
+borders.forEach(b => group.add(b));
+group.userData.borders = borders;
+return group;
+});
+let rotation = 0;
+let shimmerTime = 0;
+function animate() {
+requestAnimationFrame(animate);
+rotation -= 0.005;
+shimmerTime += 0.05;
+animateSpiral(cards, rotation);
+// Holographic shimmer
+cards.forEach((group, i) => {
+const hue = (Math.sin(shimmerTime + i) * 0.5 + 0.5);
+const color = new THREE.Color().setHSL(hue, 0.7, 0.6);
+group.userData.borders.forEach(border => {
+border.material.emissive = color;
+});
+});
+renderer.render(scene, camera);
 }
-
+animate();
+}
 // ===== VARIATION 8: Deep 3D Frame =====
 function initVariant8() {
-  const canvas = document.getElementById('canvas8');
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  
-  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
-  camera.position.set(0, 2, 12);
-  
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-  scene.add(ambientLight);
-  
-  const cards = createSpiral(scene, (i) => {
-    const group = new THREE.Group();
-    
-    const card = new THREE.Mesh(
-      new THREE.BoxGeometry(3.2, 1.8, 0.1),
-      new THREE.MeshStandardMaterial({ color: 0x6366f1, metalness: 0.3, roughness: 0.5 })
-    );
-    card.position.z = 0.15;
-    group.add(card);
-    
-    // Thick 3D frame
-    const frameMaterial = new THREE.MeshStandardMaterial({ 
-      color: 0xFF6B2B,
-      metalness: 0.7,
-      roughness: 0.3
-    });
-    
-    const frameDepth = 0.3;
-    const frameThickness = 0.15;
-    
-    const frames = [
-      new THREE.Mesh(new THREE.BoxGeometry(3.5, frameThickness, frameDepth), frameMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(3.5, frameThickness, frameDepth), frameMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(frameThickness, 2.1, frameDepth), frameMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(frameThickness, 2.1, frameDepth), frameMaterial)
-    ];
-    
-    frames[0].position.set(0, 0.975, 0);
-    frames[1].position.set(0, -0.975, 0);
-    frames[2].position.set(-1.675, 0, 0);
-    frames[3].position.set(1.675, 0, 0);
-    
-    frames.forEach(f => group.add(f));
-    
-    return group;
-  });
-  
-  let rotation = 0;
-  function animate() {
-    requestAnimationFrame(animate);
-    rotation -= 0.005;
-    animateSpiral(cards, rotation);
-    renderer.render(scene, camera);
-  }
-  animate();
+const canvas = document.getElementById('canvas8');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+camera.position.set(0, 2, 12);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+scene.add(ambientLight);
+const cards = createSpiral(scene, (i) => {
+const group = new THREE.Group();
+const card = new THREE.Mesh(
+new THREE.BoxGeometry(3.2, 1.8, 0.1),
+new THREE.MeshStandardMaterial({ color: 0x6366f1, metalness: 0.3, roughness: 0.5 })
+);
+card.position.z = 0.15;
+group.add(card);
+// Thick 3D frame
+const frameMaterial = new THREE.MeshStandardMaterial({
+color: 0xFF6B2B,
+metalness: 0.7,
+roughness: 0.3
+});
+const frameDepth = 0.3;
+const frameThickness = 0.15;
+const frames = [
+new THREE.Mesh(new THREE.BoxGeometry(3.5, frameThickness, frameDepth), frameMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(3.5, frameThickness, frameDepth), frameMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(frameThickness, 2.1, frameDepth), frameMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(frameThickness, 2.1, frameDepth), frameMaterial)
+];
+frames[0].position.set(0, 0.975, 0);
+frames[1].position.set(0, -0.975, 0);
+frames[2].position.set(-1.675, 0, 0);
+frames[3].position.set(1.675, 0, 0);
+frames.forEach(f => group.add(f));
+return group;
+});
+let rotation = 0;
+function animate() {
+requestAnimationFrame(animate);
+rotation -= 0.005;
+animateSpiral(cards, rotation);
+renderer.render(scene, camera);
 }
-
+animate();
+}
 // ===== VARIATION 9: Floating Shadow =====
 function initVariant9() {
-  const canvas = document.getElementById('canvas9');
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  
-  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
-  camera.position.set(0, 2, 12);
-  
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
-  scene.add(ambientLight);
-  
-  const cards = createSpiral(scene, (i) => {
-    const group = new THREE.Group();
-    
-    // Shadow plane behind card
-    const shadow = new THREE.Mesh(
-      new THREE.PlaneGeometry(3.4, 2.0),
-      new THREE.MeshBasicMaterial({ 
-        color: 0x000000,
-        transparent: true,
-        opacity: 0.4
-      })
-    );
-    shadow.position.set(0.1, -0.1, -0.1);
-    group.add(shadow);
-    
-    const card = new THREE.Mesh(
-      new THREE.BoxGeometry(3.2, 1.8, 0.15),
-      new THREE.MeshStandardMaterial({ 
-        color: 0x3b82f6,
-        metalness: 0.4,
-        roughness: 0.3
-      })
-    );
-    group.add(card);
-    
-    return group;
-  });
-  
-  let rotation = 0;
-  function animate() {
-    requestAnimationFrame(animate);
-    rotation -= 0.005;
-    animateSpiral(cards, rotation);
-    renderer.render(scene, camera);
-  }
-  animate();
+const canvas = document.getElementById('canvas9');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+camera.position.set(0, 2, 12);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+scene.add(ambientLight);
+const cards = createSpiral(scene, (i) => {
+const group = new THREE.Group();
+// Shadow plane behind card
+const shadow = new THREE.Mesh(
+new THREE.PlaneGeometry(3.4, 2.0),
+new THREE.MeshBasicMaterial({
+color: 0x000000,
+transparent: true,
+opacity: 0.4
+})
+);
+shadow.position.set(0.1, -0.1, -0.1);
+group.add(shadow);
+const card = new THREE.Mesh(
+new THREE.BoxGeometry(3.2, 1.8, 0.15),
+new THREE.MeshStandardMaterial({
+color: 0x3b82f6,
+metalness: 0.4,
+roughness: 0.3
+})
+);
+group.add(card);
+return group;
+});
+let rotation = 0;
+function animate() {
+requestAnimationFrame(animate);
+rotation -= 0.005;
+animateSpiral(cards, rotation);
+renderer.render(scene, camera);
 }
-
+animate();
+}
 // ===== VARIATION 10: Tech Panel =====
 function initVariant10() {
-  const canvas = document.getElementById('canvas10');
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  
-  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
-  camera.position.set(0, 2, 12);
-  
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-  scene.add(ambientLight);
-  
-  const cards = createSpiral(scene, (i) => {
-    const group = new THREE.Group();
-    
-    const card = new THREE.Mesh(
-      new THREE.BoxGeometry(3.2, 1.8, 0.1),
-      new THREE.MeshStandardMaterial({ color: 0x1a1a2e, metalness: 0.5, roughness: 0.4 })
-    );
-    group.add(card);
-    
-    const techMaterial = new THREE.MeshStandardMaterial({ 
-      color: 0x00ffff,
-      emissive: 0x00ffff,
-      emissiveIntensity: 0.6,
-      metalness: 0.9,
-      roughness: 0.1
-    });
-    
-    // Asymmetric tech details
-    const details = [
-      // Top main border
-      new THREE.Mesh(new THREE.BoxGeometry(3.3, 0.03, 0.02), techMaterial),
-      // Bottom notched border
-      new THREE.Mesh(new THREE.BoxGeometry(2.8, 0.03, 0.02), techMaterial),
-      // Left full
-      new THREE.Mesh(new THREE.BoxGeometry(0.03, 1.9, 0.02), techMaterial),
-      // Right segmented
-      new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.8, 0.02), techMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.8, 0.02), techMaterial),
-      // Corner notches
-      new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.02, 0.02), techMaterial),
-      new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.2, 0.02), techMaterial)
-    ];
-    
-    details[0].position.set(0, 0.915, 0.06);
-    details[1].position.set(-0.25, -0.915, 0.06);
-    details[2].position.set(-1.615, 0, 0.06);
-    details[3].position.set(1.615, 0.5, 0.06);
-    details[4].position.set(1.615, -0.5, 0.06);
-    details[5].position.set(1.45, 0.795, 0.06);
-    details[6].position.set(1.525, 0.72, 0.06);
-    
-    details.forEach(d => group.add(d));
-    
-    return group;
-  });
-  
-  let rotation = 0;
-  function animate() {
-    requestAnimationFrame(animate);
-    rotation -= 0.005;
-    animateSpiral(cards, rotation);
-    renderer.render(scene, camera);
-  }
-  animate();
+const canvas = document.getElementById('canvas10');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+camera.position.set(0, 2, 12);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+scene.add(ambientLight);
+const cards = createSpiral(scene, (i) => {
+const group = new THREE.Group();
+const card = new THREE.Mesh(
+new THREE.BoxGeometry(3.2, 1.8, 0.1),
+new THREE.MeshStandardMaterial({ color: 0x1a1a2e, metalness: 0.5, roughness: 0.4 })
+);
+group.add(card);
+const techMaterial = new THREE.MeshStandardMaterial({
+color: 0x00ffff,
+emissive: 0x00ffff,
+emissiveIntensity: 0.6,
+metalness: 0.9,
+roughness: 0.1
+});
+// Asymmetric tech details
+const details = [
+// Top main border
+new THREE.Mesh(new THREE.BoxGeometry(3.3, 0.03, 0.02), techMaterial),
+// Bottom notched border
+new THREE.Mesh(new THREE.BoxGeometry(2.8, 0.03, 0.02), techMaterial),
+// Left full
+new THREE.Mesh(new THREE.BoxGeometry(0.03, 1.9, 0.02), techMaterial),
+// Right segmented
+new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.8, 0.02), techMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.8, 0.02), techMaterial),
+// Corner notches
+new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.02, 0.02), techMaterial),
+new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.2, 0.02), techMaterial)
+];
+details[0].position.set(0, 0.915, 0.06);
+details[1].position.set(-0.25, -0.915, 0.06);
+details[2].position.set(-1.615, 0, 0.06);
+details[3].position.set(1.615, 0.5, 0.06);
+details[4].position.set(1.615, -0.5, 0.06);
+details[5].position.set(1.45, 0.795, 0.06);
+details[6].position.set(1.525, 0.72, 0.06);
+details.forEach(d => group.add(d));
+return group;
+});
+let rotation = 0;
+function animate() {
+requestAnimationFrame(animate);
+rotation -= 0.005;
+animateSpiral(cards, rotation);
+renderer.render(scene, camera);
 }
-
+animate();
+}
 // Initialize all variants
 window.addEventListener('load', () => {
-  initVariant1();
-  initVariant2();
-  initVariant3();
-  initVariant4();
-  initVariant5();
-  initVariant6();
-  initVariant7();
-  initVariant8();
-  initVariant9();
-  initVariant10();
+initVariant1();
+initVariant2();
+initVariant3();
+initVariant4();
+initVariant5();
+initVariant6();
+initVariant7();
+initVariant8();
+initVariant9();
+initVariant10();
 });
-</script>
-
-</body>
-</html>
+</script></body></html>

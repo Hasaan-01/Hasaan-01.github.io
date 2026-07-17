@@ -291,6 +291,43 @@ metalness: 0.2,
 roughness: 0.5
 });
 const card = new THREE.Mesh(geometry, material);
+// Thin borders - same color as background
+const borderThickness = 0.015;
+const borderDepth = 0.025;
+const glowMaterial = new THREE.MeshStandardMaterial({
+color: document.documentElement.classList.contains('dark') ? 0x18181b : 0xf4f4f5,
+transparent: false,
+metalness: 0.0,
+roughness: 1.0
+});
+// Top border
+const topBorder = new THREE.Mesh(
+new THREE.BoxGeometry(3.2 + borderThickness * 2, borderThickness, borderDepth),
+glowMaterial
+);
+topBorder.position.y = 0.9 + borderThickness / 2;
+card.add(topBorder);
+// Bottom border
+const bottomBorder = new THREE.Mesh(
+new THREE.BoxGeometry(3.2 + borderThickness * 2, borderThickness, borderDepth),
+glowMaterial
+);
+bottomBorder.position.y = -0.9 - borderThickness / 2;
+card.add(bottomBorder);
+// Left border
+const leftBorder = new THREE.Mesh(
+new THREE.BoxGeometry(borderThickness, 1.8, borderDepth),
+glowMaterial
+);
+leftBorder.position.x = -1.6 - borderThickness / 2;
+card.add(leftBorder);
+// Right border
+const rightBorder = new THREE.Mesh(
+new THREE.BoxGeometry(borderThickness, 1.8, borderDepth),
+glowMaterial
+);
+rightBorder.position.x = 1.6 + borderThickness / 2;
+card.add(rightBorder);
 const angle = (i / projects.length) * Math.PI * 2;
 const radius = 5;
 const height = i * 1.0 - 2.5;

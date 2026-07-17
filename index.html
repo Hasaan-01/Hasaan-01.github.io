@@ -277,7 +277,7 @@ const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 const textureLoader = new THREE.TextureLoader();
 projects.forEach((project, i) => {
-const geometry = new THREE.BoxGeometry(3.2, 1.8, 0.1);
+const geometry = new THREE.BoxGeometry(3.2, 1.8, 0.02);
 // Use TextureLoader - the proper Three.js way
 const texture = textureLoader.load(
 project.thumbnail,

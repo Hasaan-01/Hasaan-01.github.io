@@ -291,49 +291,6 @@ metalness: 0.2,
 roughness: 0.5
 });
 const card = new THREE.Mesh(geometry, material);
-// Enhanced border - full 3D depth coverage with black color
-const borderThickness = 0.03;
-const cardDepth = 0.1;
-const borderDepth = cardDepth + 0.02; // 0.12 total - covers entire card thickness
-const glowMaterial = new THREE.MeshStandardMaterial({
-color: document.documentElement.classList.contains('dark') ? 0x18181b : 0xf4f4f5,
-transparent: false,
-opacity: 1.0,
-metalness: 0.0,
-roughness: 1.0
-});
-// Top border - full depth, centered
-const topBorder = new THREE.Mesh(
-new THREE.BoxGeometry(3.2 + borderThickness * 2, borderThickness, borderDepth),
-glowMaterial
-);
-topBorder.position.y = 0.9 + borderThickness / 2;
-topBorder.position.z = 0; // Centered on card
-card.add(topBorder);
-// Bottom border - full depth, centered
-const bottomBorder = new THREE.Mesh(
-new THREE.BoxGeometry(3.2 + borderThickness * 2, borderThickness, borderDepth),
-glowMaterial
-);
-bottomBorder.position.y = -0.9 - borderThickness / 2;
-bottomBorder.position.z = 0; // Centered on card
-card.add(bottomBorder);
-// Left border - full depth, centered
-const leftBorder = new THREE.Mesh(
-new THREE.BoxGeometry(borderThickness, 1.8, borderDepth),
-glowMaterial
-);
-leftBorder.position.x = -1.6 - borderThickness / 2;
-leftBorder.position.z = 0; // Centered on card
-card.add(leftBorder);
-// Right border - full depth, centered
-const rightBorder = new THREE.Mesh(
-new THREE.BoxGeometry(borderThickness, 1.8, borderDepth),
-glowMaterial
-);
-rightBorder.position.x = 1.6 + borderThickness / 2;
-rightBorder.position.z = 0; // Centered on card
-card.add(rightBorder);
 const angle = (i / projects.length) * Math.PI * 2;
 const radius = 5;
 const height = i * 1.0 - 2.5;

@@ -1,26 +1,33 @@
 {
   "name": "hasaan-portfolio",
-  "version": "1.0.0",
-  "description": "**Data Engineer & BI Developer**",
-  "main": "tailwind.config.js",
+  "version": "1.1.0",
+  "description": "Data Engineer & BI Developer Portfolio",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build:css && npm run build:js && npm run build:html",
+    "build:css": "postcss src/input.css -o dist/styles.css --env production",
+    "build:js": "node scripts/build-js.js",
+    "build:html": "node scripts/build-html.js",
+    "dev": "postcss src/input.css -o dist/styles.css --watch",
+    "serve": "npx serve .",
+    "optimize": "npm run build && npm run compress",
+    "compress": "node scripts/compress.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Hasaan-01/Hasaan-01.github.io.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["portfolio", "power-bi", "data-engineer", "business-intelligence"],
+  "author": "Muhammad Hasaan",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/Hasaan-01/Hasaan-01.github.io/issues"
-  },
-  "homepage": "https://github.com/Hasaan-01/Hasaan-01.github.io#readme",
   "devDependencies": {
     "autoprefixer": "^10.5.4",
+    "cssnano": "^7.0.6",
+    "html-minifier-terser": "^7.2.0",
+    "postcss": "^8.4.49",
     "postcss-cli": "^11.0.1",
-    "tailwindcss": "^3.4.19"
+    "postcss-import": "^16.1.0",
+    "tailwindcss": "^3.4.19",
+    "terser": "^5.37.0"
   }
 }

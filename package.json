@@ -4,14 +4,16 @@
   "description": "Data Engineer & BI Developer Portfolio",
   "main": "index.html",
   "scripts": {
-    "build": "npm run build:css && npm run build:js && npm run build:html",
+    "build": "npm run build:css && npm run build:js && npm run bump && npm run build:html",
+    "bump": "node scripts/bump-version.js",
     "build:css": "postcss src/input.css -o dist/styles.css --env production",
     "build:js": "node scripts/build-js.js",
     "build:html": "node scripts/build-html.js",
     "dev": "postcss src/input.css -o dist/styles.css --watch",
     "serve": "npx serve .",
     "optimize": "npm run build && npm run compress",
-    "compress": "node scripts/compress.js"
+    "compress": "node scripts/compress.js",
+    "deploy": "node scripts/deploy.js"
   },
   "repository": {
     "type": "git",

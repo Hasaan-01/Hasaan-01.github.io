@@ -38,6 +38,14 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="styles.css?v=3">
+<style>
+/* Ensure content is visible even if Alpine/reveal animation fails */
+.reveal{opacity:1;transform:none}
+.reveal.in{opacity:1;transform:none}
+/* Only animate if Alpine is working */
+[x-data] .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
+[x-data] .reveal.in{opacity:1;transform:none}
+</style>
 
 <!-- Tailwind config -->
 <script>
@@ -50,8 +58,8 @@ tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{display:['PT Sans',
 window.threeJSLoaded=false;window.loadThreeJS=function(){if(window.threeJSLoaded)return Promise.resolve();return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';script.async=true;script.onload=()=>{window.threeJSLoaded=true;resolve()};script.onerror=reject;document.head.appendChild(script)})};
 // Service Worker
 if('serviceWorker'in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js').catch(()=>{})})}
-// Fallback app() so page works even if app.min.js fails to load
-window.app=function(){return{dark:false,mm:false,sc:false,s:'hero',init:function(){this.dark=localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme: dark)').matches);this.$watch&&this.$watch('dark',function(v){localStorage.setItem('theme',v?'dark':'light')});window.addEventListener('scroll',function(){},{passive:true});var t=document.getElementById('yr');if(t)t.textContent=(new Date).getFullYear();}};};
+// Make reveal elements visible by default if JS fails — real app() in app.min.js will animate them
+(function(){var s=document.createElement('style');s.textContent='.reveal{opacity:1!important;transform:none!important}';window.addEventListener('error',function(e){if(e.target&&e.target.tagName==='SCRIPT'){document.head.appendChild(s);}},true);setTimeout(function(){if(!document.querySelector('.reveal.in')){document.head.appendChild(s);}},5000);})();
 </script>
 
 <!-- Deferred scripts -->

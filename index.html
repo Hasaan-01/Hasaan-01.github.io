@@ -50,14 +50,29 @@ tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{display:['PT Sans',
 window.threeJSLoaded=false;window.loadThreeJS=function(){if(window.threeJSLoaded)return Promise.resolve();return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';script.async=true;script.onload=()=>{window.threeJSLoaded=true;resolve()};script.onerror=reject;document.head.appendChild(script)})};
 // Service Worker
 if('serviceWorker'in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js').catch(()=>{})})}
+// Fallback app() so page works even if app.min.js fails to load
+window.app=function(){return{dark:false,mm:false,sc:false,s:'hero',init:function(){this.dark=localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme: dark)').matches);this.$watch&&this.$watch('dark',function(v){localStorage.setItem('theme',v?'dark':'light')});window.addEventListener('scroll',function(){},{passive:true});var t=document.getElementById('yr');if(t)t.textContent=(new Date).getFullYear();}};};
 </script>
 
 <!-- Deferred scripts -->
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
 <script defer src="app.min.js?v=3"></script>
+<!-- Fallback: if Alpine fails to load, ensure content is still visible -->
+<script>
+window.addEventListener('DOMContentLoaded',function(){
+  setTimeout(function(){
+    if(typeof Alpine==='undefined'){
+      document.documentElement.classList.remove('x-cloak');
+      document.querySelectorAll('[x-cloak]').forEach(function(el){el.removeAttribute('x-cloak');});
+      console.warn('Alpine.js failed to load — showing fallback content');
+    }
+  },3000);
+});
+</script>
 </head>
 
 <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
+<noscript><style>[x-cloak]{display:block!important}</style></noscript>
 
 <!-- Header -->
 <header class="fixed inset-x-0 top-0 z-50 transition-all duration-300" :class="sc?'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5':''">

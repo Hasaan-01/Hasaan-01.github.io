@@ -39,6 +39,8 @@
 <!-- Styles -->
 <link rel="stylesheet" href="styles.css?v=3">
 <style>
+/* Hide x-cloak elements before Alpine loads */
+[x-cloak]{display:none!important}
 /* Ensure content is visible even if Alpine/reveal animation fails */
 .reveal{opacity:1;transform:none}
 .reveal.in{opacity:1;transform:none}
@@ -47,7 +49,8 @@
 [x-data] .reveal.in{opacity:1;transform:none}
 </style>
 
-<!-- Tailwind config -->
+<!-- Tailwind Play CDN + config -->
+<script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{display:['PT Sans','sans-serif'],body:['DM Sans','sans-serif']},colors:{accent:'#FF6B2B','accent-light':'#FF8F5C'}}}};
 </script>
@@ -63,8 +66,8 @@ if('serviceWorker'in navigator){window.addEventListener('load',()=>{navigator.se
 </script>
 
 <!-- Deferred scripts -->
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
 <script defer src="app.min.js?v=3"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
 <!-- Fallback: if Alpine fails to load, ensure content is still visible -->
 <script>
 window.addEventListener('DOMContentLoaded',function(){
